@@ -1,0 +1,7 @@
+main form {
+    display: inline-block;
+    width: min (500px, 80%);
+    transform: rotateZ('0');
+}
+
+main form.cloused {}

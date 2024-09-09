@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    /*se ajusta en pantallas más chicas */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+    /* Ajusta el tamaño del texto en pantallas más grandes */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+#form-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    max-width: 100%;
+    /* Asegura que el formulario no sea más ancho que el contenedor en pantallas pequeñas */
+}
+
+.form {
+    transition: opacity 0.3s ease-in-out;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+
+    #form-container {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 5px;
+    }
+
+    header h1 {
+        font-size: 1.2em;
+        /* Reduce el tamaño del texto del encabezado en pantallas más pequeñas */
+    }
+
+    #container {
+        height: auto;
+        /* Ajusta la altura para que el contenedor se ajuste al contenido */
+        padding: 10px;
+        /* Reduce el relleno para pantallas pequeñas */
+    }
+
+    #form-container {
+        width: 100%;
+        padding: 15px;
+    }
+}
