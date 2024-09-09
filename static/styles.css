@@ -144,25 +144,33 @@ button:hover {
     background-color: #45a049;
 }
 
-
 /* Media Queries */
+
+/* Ajustes para pantallas de tablets y dispositivos medianos */
 @media (max-width: 768px) {
+
+    /* Cambiar la disposición del header a una columna para pantallas pequeñas */
     header {
         flex-direction: column;
         align-items: flex-start;
         padding: 10px;
     }
 
+    /* Ajustar los enlaces de navegación para apilarlos verticalmente */
     nav a {
         margin: 10px 0;
     }
 
+    /* Ajustar el tamaño del contenedor de formularios para que ocupe más espacio en pantallas pequeñas */
     #form-container {
         width: 90%;
+        /* Aumentar el ancho en pantallas más pequeñas */
         max-width: 400px;
+        /* Limitar el ancho máximo */
     }
 }
 
+/* Ajustes para pantallas de móviles pequeños */
 @media (max-width: 480px) {
 
     header h1 {
@@ -180,5 +188,6 @@ button:hover {
     #form-container {
         width: 100%;
         padding: 15px;
+        /* Ajusta el relleno interno del formulario para pantallas pequeñas */
     }
 }

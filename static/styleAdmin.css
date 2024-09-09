@@ -20,6 +20,7 @@ body {
     margin: 0;
 }
 
+/* Estilo header */
 header {
     background-color: #000000;
     color: white;
@@ -131,6 +132,7 @@ button:hover {
     position: relative;
 }
 
+/* Estilo de la imagen del producto dentro de la tarjeta */
 .product-card img {
     max-width: 100%;
     border-radius: 4px;
@@ -192,28 +194,39 @@ button:hover {
 }
 
 /* Media Queries */
+
+/* Ajustes para pantallas de tablets y dispositivos medianos */
 @media (max-width: 768px) {
+
+    /* Cambiar la disposición del header a una columna para pantallas pequeñas */
     header {
         flex-direction: column;
         align-items: flex-start;
         padding: 10px;
     }
 
+    /* Ajustar los enlaces de navegación para apilarlos verticalmente */
     nav a {
         margin: 10px 0;
     }
 
+    /* Ajustar el tamaño de las tarjetas de producto para pantallas pequeñas */
     .product-card {
         max-width: 100%;
+        /* Hacer que las tarjetas de producto ocupen todo el ancho disponible */
     }
 }
 
+/* Ajustes para pantallas de móviles pequeños */
 @media (max-width: 480px) {
+
+    /* Hacer que las tarjetas de producto ocupen todo el ancho disponible */
     .product-card {
         width: 100%;
         max-width: 100%;
     }
 
+    /* Ajustar el relleno del contenedor del formulario en pantallas pequeñas */
     #product-form-container {
         padding: 15px;
     }
