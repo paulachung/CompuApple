@@ -100,7 +100,7 @@
     }
 
     .single-card {
-        width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+        width: 100%;
         margin: 5px auto;
     }
 
@@ -110,7 +110,7 @@
 
     .single-card .img-area img {
         width: 100%;
-        height: auto; /* Ajuste automático para evitar deformación */
+        height: auto;
         object-fit: cover;
     }
 
