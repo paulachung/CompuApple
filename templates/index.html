@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompuApple</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <button class="menu-toggle">☰</button>
+        <div class="logo">
+            <a href="/">
+                <img src="/static/img/cover.png" alt="CompuApple">
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/products">Productos</a></li>
+                <li><a href="/about-us">Sobre Nosotros</a></li>
+                <li><a href="/login"><i class="fa-regular fa-user"></i></a></li>
+                <li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li>
+                    <span id="toggle-btn" class="dark-mode-toggle">
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Carousel Bienvenida -->
+        <section id="bienvenida">
+            <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/static/img/cover.png" class="d-block w-100" alt="Slide 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Bienvenido a CompuApple</h5>
+                            <p>Encuentra todos los productos de Apple al mejor precio</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static/img/slide2.jpeg" class="d-block w-100" alt="Slide 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Productos</h5>
+                            <p>Descubre todos nuestros productos</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static/img/slide3.png" class="d-block w-100" alt="Slide 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Novedades</h5>
+                            <p>Ya llegó el nuevo iPhone 16</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                    </button>
+            </div>
+        </section>
+
+        <!-- Productos Destacados -->
+        <section id="productosDestacados" class="mt-5">
+            <div class="container">
+                <h2 class="TituloProductosDestacados">Productos Destacados 🔥</h2>
+                
+                <div class="wrapper">
+
+                    <div class="single-card">
+                        <div class="img-area">
+                            <img src="/static/img/product1.png" alt="Producto 1">
+                        </div>
+
+                        <div class="info">
+                            <h3>MacBook Air 15" M3 $3.000.000</h3>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-card">
+                        <div class="img-area">
+                            <img src="/static/img/iPhonedestacado.png" alt="Producto 2">
+                        </div>
+                        <div class="info">
+                            <h3>iPhone 15 $2.500.000</h3>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-card">
+                        <div class="img-area">
+                            <img src="/static/img/iPaddestacado.jpg" alt="Producto 3">
+                        </div>
+                        <div class="info">
+                            <h3>iPad Pro 11 M2 $2.100.000</h3>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-card">
+                        <div class="img-area">
+                            <img src="/static/img/watchdestacado.jpg" alt="Producto 4">
+                        </div>
+                        <div class="info">
+                            <h3>Apple Watch Series 9 $1.012.000</h3>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorías -->
+        <section id="categorias" class="mt-5">
+            <div class="container">
+                <h2 class="TituloCategorias">Categorías</h2>
+                <div class="categorias-wrapper">
+                    <!-- Tarjeta de categoría -->
+                    <a href="/mac" class="categoria-card">
+                        <img src="/static/img/mac.jpeg" alt="Mac">
+                        <h3>Mac</h3>
+                    </a>
+        
+                    <a href="/iPhone" class="categoria-card">
+                        <img src="/static/img/iPhone.jpeg" alt="iPhone">
+                        <h3>iPhone</h3>
+                    </a>
+        
+                    <a href="/iPad" class="categoria-card">
+                        <img src="/static/img/iPad.jpeg" alt="iPad">
+                        <h3>iPad</h3>
+                    </a>
+        
+                    <a href="/watch" class="categoria-card">
+                        <img src="/static/img/watch.jpeg" alt="Watch">
+                        <h3>Watch</h3>
+                    </a>
+
+                    <a href="/airPods" class="categoria-card">
+                        <img src="/static/img/airPods.jpeg" alt="AirPods">
+                        <h3>AirPods</h3>
+                    </a>
+
+                    <a href="/accessories" class="categoria-card">
+                        <img src="/static/img/accesorios.jpeg" alt="Accesorios">
+                        <h3>Accesorios</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 CompuApple. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
+

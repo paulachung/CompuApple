@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* ------------- Estilo body -------------*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4efef;
+}
+
+/* ------------- Estilo menú -------------*/
+.menu-toggle {
+    display: none;
+}
+
+/* ------------- Estilo header -------------*/
+header {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 20px;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+.logo {
+    flex: 1;
+}
+
+/* Estilo logo header */
+.logo img {
+    width: 200px;
+    height: auto;
+}
+
+/* Estilo de navegación */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Estilos para mostrar el menú cuando se activa */
+nav ul.active {
+    display: flex; /* Muestra el menú cuando se activa */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Efecto hover cambia de color cuando pasa por encima de los distintos enlaces */
+nav ul li a:hover {
+    color: #14de43;
+}
+
+/* Estilo main */
+main {
+    flex-grow: 1;
+    padding: 0;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ------------- Carousel Bienvenida -------------*/
+#carouselBienvenida {
+    margin: 0;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 350px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 25%;
+}
+
+/* Cambia el color de los indicadores del carrusel */
+.carousel-indicators .active {
+    background-color: rgba(160, 149, 149, 0.583)
+}
+
+/* ------------- Productos Destacados -------------*/
+.TituloProductosDestacados {
+    text-align: left;
+	margin: 0;
+	font-size: 30px;
+    padding-left: 50px;
+}
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 15px;
+	margin: 20px auto 0;
+}
+.single-card {
+	width: 250px;
+	margin: 15px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	background: #ffffff;
+	border-radius: 10px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.single-card:hover {
+	transform: translateY(-10px);
+}
+.img-area {
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+}
+.img-area img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+.img-area:hover img {
+	transform: scale(1.1);
+}
+
+.info {
+	padding: 15px;
+	text-align: center;
+	color: #000000;
+}
+.info h3 {
+	margin: 15px 0 10px;
+	font-size: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.buttons {
+    margin-top: 15px;
+	display: flex;
+    gap: 10px;
+	flex-direction: column;
+}
+
+.buy-now, .add-to-cart {
+    background-color: #14de43;
+    color: #000000;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+}
+
+.buy-now:hover, .add-to-cart:hover {
+    background-color: #14de43;
+    color: #ffffff;
+    border: none;
+}
+
+/* ------------- Categorías -------------*/
+#categorias {
+    padding: 0 0 50px;
+}
+
+.TituloCategorias {
+    font-size: 30px;
+    text-align: left;
+    align-self: center;
+    padding-left: 50px;
+}
+
+.categorias-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    flex-wrap: wrap;
+    margin-top: 0 20px;
+}
+
+.categoria-card {
+    position: relative;
+    width: 200px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.categoria-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.categoria-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 0;
+    font-size: 24px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+/* ------------- Estilo Footer -------------*/
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* ------------- Modo Oscuro -------------*/
+.theme-dark {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode-toggle {
+    cursor: pointer;
+    padding: 0;
+    margin-right: 30px;
+}
+
+.dark-mode-toggle:hover {
+    color: #14de43;
+}
