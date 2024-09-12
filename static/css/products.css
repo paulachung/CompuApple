@@ -1,0 +1,279 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Estilo body */
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo header */
+header {
+    background-color: #000000;
+    color: white;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0px 20px;
+    z-index: 10;
+    position: relative;
+    height: 80px;
+}
+
+/* Estilo main */
+main {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Estilo logo header */
+.logo img {
+    display: block;
+    width: 200px; 
+    height: 80px;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+/* Estilo navegación */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Estilo ícono de font awesome */
+nav ul li a i {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+/* Efecto hover cambia de color cuando pasa por encima de los distintos enlaces */
+nav ul li a:hover {
+    color: #14de43;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Buscador */
+section.buscador {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.buscador input {
+    padding: 0.5rem;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.buscador button {
+    padding: 0.5rem 1rem;
+    background-color: #14de43;
+    border: none;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Menú lateral subcategorías */
+.menu-lateral {
+    width: 200px;
+    background-color: #333333; 
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.menu-lateral h2 {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral ul li {
+    margin: 0.5rem 0;
+}
+
+.menu-lateral ul li a {
+    color: white; 
+    text-decoration: none;
+}
+
+.menu-lateral ul li a:hover {
+    color: #14de43; 
+}
+/* Cambiar color de fondo del menú desplegable */
+.menu-lateral ul li .dropdown-menu {
+    background-color: #333333; 
+    border: 1px solid #14de43; 
+    border-radius: 4px;
+}
+
+/* Cambia color de los elementos del menú desplegable */
+.menu-lateral ul li .dropdown-menu a {
+    color: white; 
+    padding: 0.5rem 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+/* Cambia color de fondo y texto cuando pasas por encima de una opción */
+.menu-lateral ul li .dropdown-menu a:hover {
+    background-color: #14de43; 
+    color: black; 
+}
+
+/* Cambia estilo del desplegable al ser seleccionado */
+.menu-lateral ul li .dropdown-menu a.active {
+    background-color: #555555; 
+    color: white; 
+}
+
+
+/* Sección de productos */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.producto {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.producto h3 {
+    margin: 0.5rem 0;
+    color: #000000;
+}
+
+.producto p {
+    color: #14de43;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* centrar el mensaje de "No se encontraron productos" */
+.no-resultados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #888;
+}
+
+.no-resultados p {
+    margin: 0;
+}
+/* Estilo para la descripción del producto */
+.producto .descripcion {
+    font-size: 12px; 
+    color: #333333; 
+    margin-top: 10px;
+    line-height: 1.4; 
+}
+
+/* Estilo para las imágenes de los productos */
+.producto img {
+    width: 100%; 
+    max-width: 200px; 
+    height: auto; 
+    object-fit: cover; 
+}
+/* Estilo para el botón 'Añadir al carrito' */
+.btn-carrito {
+    background-color: #14de43; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    display: flex; 
+    align-items: center; 
+    margin: 0 auto; 
+}
+
+/* Efecto hover para el botón */
+.btn-carrito:hover {
+    background-color: #12b43d; 
+}
+
+/* ícono dentro del botón */
+.btn-carrito i {
+    margin-right: 8px; 
+}
