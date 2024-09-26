@@ -2,46 +2,66 @@
 @media (max-width: 768px) {
     header {
         flex-direction: row;
-        justify-content: space-between; 
+        justify-content: space-between;
+        align-items: center;
         padding: 10px;
         height: auto;
     }
 
-    nav {
-        width: 100%;
-    }
-
+    /* Estilo del botón hamburguesa */
     .menu-toggle {
         display: block;
         background: none;
         border: none;
-        font-size: 24px;
+        font-size: 1.5rem;
         cursor: pointer;
         color: #fff;
-        margin-right: 0;
+        align-self: center;
+        margin-right: 20px;
     }
 
+    nav {
+        width: 100%;
+        position: relative;
+    }
+
+    /* Ocultar el menú por defecto */
     nav ul {
         display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: rgb(22, 22, 22);
         flex-direction: column;
-        width: 100%;
+        width: 200px;
         padding: 0;
+        margin: 0;
+    }
+
+    /* Mostrar el menú cuando esté activo */
+    nav ul.active {
+        display: flex;
     }
 
     nav ul li {
         margin: 5px 0;
+        text-align: right;
+        padding: 0px;
     }
 
     nav a {
         margin: 10px 0;
         color: #fff;
         text-decoration: none;
+        font-size: 16px;
     }
 
+    /* Logo ajustado */
     .logo img {
         width: 150px;
     }
 
+    /* Ajustes para las tarjetas de productos */
     .single-card {
         width: 50%;
         margin: 10px auto;
@@ -69,7 +89,26 @@
     .carousel-caption p {
         font-size: 14px;
     }
+
+    .navbar-collapse {
+        flex-direction: column;
+    }
+
+    .navbar-nav {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .navbar-nav .nav-link {
+        justify-content: center;
+    }
 }
+
+
 
 @media (max-width: 480px) {
     header h1 {
@@ -80,6 +119,7 @@
         width: 100px;
     }
 
+    /* Ocultar el menú por defecto */
     nav ul {
         display: none;
         flex-direction: column;
@@ -87,6 +127,10 @@
         padding: 0;
         margin: 0;
         background-color: #333;
+    }
+
+    nav ul.active {
+        display: flex;
     }
 
     nav ul li {
@@ -99,6 +143,7 @@
         padding: 10px 5px;
     }
 
+    /* Ajustes para las tarjetas de productos */
     .single-card {
         width: 100%;
         margin: 5px auto;
@@ -145,5 +190,3 @@
         font-size: 12px;
     }
 }
-
-
