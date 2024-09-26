@@ -6,7 +6,7 @@
 
 html, body {
     height: 100%;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 /* ------------- Estilo body -------------*/
@@ -14,7 +14,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f4efef;
+    background-color: rgb(245, 245, 247);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ------------- Estilo menú -------------*/
@@ -24,24 +25,21 @@ body {
 
 /* ------------- Estilo header -------------*/
 header {
-    background-color: #000000;
-    color: rgb(255, 255, 255);
+    background-color: rgb(22,22,22);
+    color: rgb(245, 245, 247);
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 0 20px;
-    height: auto;
-    flex-wrap: wrap;
+    padding: 10px 20px;
+    height: 80px;
 }
 
+/* Estilo del logo */
 .logo {
     flex: 1;
-}
-
-/* Estilo logo header */
-.logo img {
     width: 200px;
     height: auto;
+    margin-left: 0;
 }
 
 /* Estilo de navegación */
@@ -54,11 +52,14 @@ nav ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
 }
 
 /* Estilos para mostrar el menú cuando se activa */
 nav ul.active {
-    display: flex; /* Muestra el menú cuando se activa */
+    max-height: 300px;
 }
 
 nav ul li {
@@ -68,12 +69,33 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
 }
 
 /* Efecto hover cambia de color cuando pasa por encima de los distintos enlaces */
 nav ul li a:hover {
-    color: #14de43;
+    color: rgb(134, 208, 162);
+}
+
+/* Asegúrate de que todos los iconos estén alineados correctamente */
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Asegura que todos los links dentro del menú estén alineados de la misma manera */
+.navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    padding: 8px 10px;
+}
+
+.navbar-nav .nav-link i {
+    font-size: 16px;
+    margin-right: 8px;
 }
 
 /* Estilo main */
@@ -96,23 +118,25 @@ p {
 /* ------------- Carousel Bienvenida -------------*/
 #carouselBienvenida {
     margin: 0;
+    width: 100%;
 }
 
 .carousel-inner {
     width: 100%;
-    height: 350px;
+    height: 500px;
     overflow: hidden;
 }
 
 .carousel-item {
     width: 100%;
-    height: 350px;
+    height: 500px;
 }
 
 .carousel-item img {
     width: 100%;
-    height: 350px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain; /* Mantiene las proporciones de la imagen sin distorsionar */
+    background-color: #000;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
@@ -187,7 +211,7 @@ p {
 }
 
 .buy-now, .add-to-cart {
-    background-color: #14de43;
+    background-color: rgb(247, 152, 94);
     color: #000000;
     padding: 10px 15px;
     border-radius: 4px;
@@ -200,8 +224,8 @@ p {
 }
 
 .buy-now:hover, .add-to-cart:hover {
-    background-color: #14de43;
-    color: #ffffff;
+    background-color: rgb(247, 152, 94);
+    color: rgb(245, 245, 247);
     border: none;
 }
 
@@ -258,24 +282,25 @@ p {
 
 /* ------------- Estilo Footer -------------*/
 footer {
-    background-color: #000000;
-    color: white;
+    background-color: rgb(22,22,22);
+    color: rgb(245, 245, 247);
     text-align: center;
     padding: 10px 0;
 }
 
 /* ------------- Modo Oscuro -------------*/
 .theme-dark {
-    background-color: #121212;
-    color: #f1f1f1;
+    background-color: rgb(22,22,22);
+    color: rgb(245, 245, 247);
 }
 
 .dark-mode-toggle {
     cursor: pointer;
-    padding: 0;
-    margin-right: 30px;
+    font-size: 20px;
 }
 
+/* Efecto hover para todos los enlaces y el icono del modo oscuro */
+.navbar-nav .nav-link:hover,
 .dark-mode-toggle:hover {
-    color: #14de43;
+    color: rgb(134, 208, 162);
 }
