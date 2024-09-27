@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Estilo body */
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/* Estilo navegación */
+nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* Permite el scroll horizontal si los elementos son muchos */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+    flex-wrap: nowrap;
+    /* Evita que los elementos se apilen en columnas */
+}
+
+nav ul li {
+    margin: 0 15px;
+    white-space: nowrap;
+    /* Evita que los enlaces se dividan en varias líneas */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Estilo ícono de font awesome */
+nav ul li a i {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+/* Efecto hover cambia de color cuando pasa por encima de los distintos enlaces */
+nav ul li a:hover {
+    color: #000000;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    /* Espacio desde el encabezado */
+}
+
+.input-container {
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    /* Espacio entre los campos */
+}
+
+.input-container .icon {
+    margin-right: 10px;
+    /* Espacio entre el ícono y el input */
+}
+
+#form-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    /* Ancho máximo del formulario */
+    width: 100%;
+    /* Asegura que el formulario no sea más ancho que su contenedor */
+    text-align: center;
+    max-width: 100%;
+    /* Asegura que el formulario no sea más ancho que el contenedor en pantallas chicas */
+    margin: 0 auto;
+    /* Centrar el formulario */
+}
+
+.form {
+    transition: opacity 0.3s ease-in-out;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 8px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #5c5857;
+}
