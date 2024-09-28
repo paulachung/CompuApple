@@ -5,6 +5,7 @@
   font-family: 'Roboto', sans-serif;
 }
 /* ------------- Estilo header -------------*/
+/*
 header {
   background-color: #222;
   color: rgb(255, 255, 255);
@@ -12,12 +13,119 @@ header {
   justify-content: space-between; 
   align-items: center;
   padding: 0 20px;
-  height: auto;
+  height: 3rem;
   flex-wrap: wrap;
+}
+header a{
+  text-decoration: none;
+  color: #eee;
+  transition: .2s ease;
+}
+header a:hover{
+  color: #14de43;
 }
 
 .logo {
   flex: 1;
+}*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+/* ------------- Estilo body -------------*/
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgb(245, 245, 247);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ------------- Estilo menú -------------*/
+.menu-toggle {
+  display: none;
+}
+
+/* ------------- Estilo header -------------*/
+header {
+  background-color: rgb(22,22,22);
+  color: rgb(245, 245, 247);
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 10px 20px;
+  height: 80px;
+}
+
+/* Estilo del logo */
+.logo {
+  flex: 1;
+  width: 200px;
+  height: auto;
+  margin-left: 0;
+}
+
+/* Estilo de navegación */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+/* Estilos para mostrar el menú cuando se activa */
+nav ul.active {
+  max-height: 300px;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+}
+
+/* Efecto hover cambia de color cuando pasa por encima de los distintos enlaces */
+nav ul li a:hover {
+  color: #638ea8;
+}
+
+/* Asegúrate de que todos los iconos estén alineados correctamente */
+.navbar-nav .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+/* Asegura que todos los links dentro del menú estén alineados de la misma manera */
+.navbar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+  padding: 8px 10px;
+}
+
+.navbar-nav .nav-link i {
+  font-size: 16px;
+  margin-right: 8px;
 }
 
 /* Estilo logo header */
