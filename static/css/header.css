@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* ------------- Estilo body -------------*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgb(245, 245, 247);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ------------- Estilo menú -------------*/
+.menu-toggle {
+    display: none;
+}
+
+/* ------------- Estilo header -------------*/
+header {
+    background-color: rgb(22,22,22);
+    color: rgb(245, 245, 247);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px;
+    height: 80px;
+}
+
+/* Estilo del logo */
+.logo {
+    flex: 1;
+    width: 180px;
+    height: auto;
+    margin-left: 0;
+}
+
+/* Estilo de navegación */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+/* Estilos para mostrar el menú cuando se activa */
+nav ul.active {
+    max-height: 300px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+}
+
+/* Efecto hover cambia de color cuando pasa por encima de los distintos enlaces */
+nav ul li a:hover {
+    color: #638ea8;
+}
+
+/* Asegúrate de que todos los iconos estén alineados correctamente */
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Asegura que todos los links dentro del menú estén alineados de la misma manera */
+.navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    padding: 8px 10px;
+}
+
+.navbar-nav .nav-link i {
+    font-size: 16px;
+    margin-right: 8px;
+}
+
+/* Estilo main */
+main {
+    flex-grow: 1;
+    padding: 0;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Media query responsive*/
+
+@media screen and (max-width: 991px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        height: auto;
+    }
+
+    .logo {
+        width: 180px;
+        margin-bottom: 10px;
+    }
+
+    /* Mostrar menú hamburguesa */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 30px;
+        height: 80px;
+        color: white;
+        align-self: flex-end;
+    }
+
+    nav {
+        width: 100%
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* Cuando el menú está activo, muestra los enlaces */
+    nav ul.active {
+        max-height: 500px;
+        transition: max-height 0.5s ease;
+    }
+    .navbar-collapse {
+        flex-direction: column;
+    }
+
+    .navbar-nav {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .navbar-nav .nav-link {
+        justify-content: center;
+    }
+}
+
+/* ------------- Estilo Footer -------------*/
+footer {
+    background-color: rgb(22,22,22);
+    color: rgb(245, 245, 247);
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid rgb(245, 245, 247);
+}
+  
+/* ------------- Modo Oscuro -------------*/
+.theme-dark {
+    background-color: rgb(22,22,22);
+    color: rgb(245, 245, 247);
+}
+  
+.dark-mode-toggle {
+    cursor: pointer;
+    font-size: 20px;
+}
+  
+/* Efecto hover para todos los enlaces y el icono del modo oscuro */
+.navbar-nav .nav-link:hover,
+.dark-mode-toggle:hover {
+    color: #638ea8;
+}
+
+/* ----------- volver arriba----------- */
+#btn-subir-arriba {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    color: #333333;
+    border: none;
+    border-radius: 30%;
+    padding: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#btn-subir-arriba:hover {
+    color: #000000;
+}
