@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en">
@@ -427,4 +428,342 @@ addToCartButtons.forEach(button => {
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
+=======
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompuApple</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/css/products.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Font Awesome iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        
+</head>
+
+<body>
+    <!-- header -->
+    <header class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="/static/img/logonuevo.png" alt="CompuApple" class="logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUs.html">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html"><i class="fa-regular fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <span id="toggle-btn" class="nav-link dark-mode-toggle"><i class="fa-regular fa-lightbulb"></i></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- buscador -->
+        <section class="buscador">
+            <input type="text" id="buscar" placeholder="Nombre del producto...">
+            <button onclick="buscarProducto()"><i class="bi bi-search"></i></button>
+        </section>
+
+        <!-- contenedor principal -->
+        <div class="contenedor">
+            <aside class="menu-lateral">
+                <h2>Categorías</h2>
+                <ul>
+                    <li><a href="#" onclick="mostrarCategoria('todos')">Todos</a></li>
+                    <!-- accesorios -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Accesorios</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="mostrarSubcategoria('funda')">Fundas</a></li>
+                            <li><a href="#" onclick="mostrarSubcategoria('vidrio')">Vidrios</a></li>
+                            <li><a href="#" onclick="mostrarSubcategoria('cargador')">Cargadores</a></li>
+                            <li><a href="#" onclick="mostrarSubcategoria('airpods')">AirPods</a></li>
+                        </ul>
+                    </li>
+                    <!-- iPhone -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">iPhone</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="mostrarSubcategoria('iPhone 13')">iPhone 13</a></li>
+                            <li><a href="#" onclick="mostrarSubcategoria('iPhone 14')">iPhone 14</a></li>
+                            <li><a href="#" onclick="mostrarSubcategoria('iPhone 15')">iPhone 15</a></li>
+                            <li><a href="#" onclick="mostrarSubcategoria('iPhone 15 Pro')">iPhone 15 Pro</a></li>
+                        </ul>
+                    </li>
+                    <!-- iPad -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">iPad</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="mostrarSubcategoria('iPad Air')">iPad Air</a></li>
+                            <li><a href="#" onclick="mostrarSubcategoria('iPad Mini')">iPad Mini</a></li>
+                        </ul>
+                    </li>
+                    <!-- MacBook -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">MacBook</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="mostrarSubcategoria('MacBook Air')">MacBook Air</a></li>
+                            <li><a href="#" onclick="mostrarSubcategoria('MacBook Pro')">MacBook Pro</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            
+            <!-- sección de productos -->
+            <section class="productos">
+                <!-- iPhone -->
+                    <div class="card" data-categoria="iphone" data-subcategoria="iPhone 13">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_2X_654080-MLA47781882564_102021-F.webp" alt="iPhone 13" class="card-img-top">
+                            <div class="card-body">
+                                <h3 class="card-title">iPhone 13</h3>
+                                <p class="price">$799.99</p>
+                                <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                                <div class="buttons">
+                                    <button class="buy-now">Comprar Ahora</button>
+                                    <button class="add-to-cart">Añadir al Carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-categoria="iphone" data-subcategoria="iPhone 14">
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_2X_875570-MLU78994521921_092024-F.webp" alt="iPhone 14" class="card-img-top">
+                            <div class="card-body">
+                                <h3 class="card-title">iPhone 14</h3>
+                                <p class="price">$799.99</p>
+                                <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                                <div class="buttons">
+                                    <button class="buy-now">Comprar Ahora</button>
+                                    <button class="add-to-cart">Añadir al Carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <div class="card" data-categoria="iphone" data-subcategoria="iPhone 15">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_958009-MLA71782868134_092023-O.webp" alt="iPhone 15" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">iPhone 15</h3>
+                            <p class="price">$799.99</p>
+                            <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" data-categoria="iphone" data-subcategoria="iPhone 15 Pro">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_912227-MLA71782903150_092023-O.webp" alt="iPhone 15 Pro" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">iPhone 15 Pro</h3>
+                            <p class="price">$799.99</p>
+                            <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                <!-- accesorios -->
+                <div class="card" data-categoria="accesorios" data-subcategoria="funda">
+                        <img src="https://dcdn.mitiendanube.com/stores/002/611/582/products/funda-transparente-para-iphone-138f8c2e3c635e44d517195873362417-1024-1024.webp" alt="funda" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Funda</h3>
+                            <p class="price">$99.99</p>
+                            <p class="card-text">Funda de silicona , resistente a golpes.</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="card" data-categoria="accesorios" data-subcategoria="vidrio">
+                        <img src="https://acdn.mitiendanube.com/stores/003/688/174/products/spa_pl_vidrio-templado-spigen-glas-tr-slim-iphone-14-pro-max-120894_1-cb993140101dc7768717115753504517-1024-1024.jpg" alt="vidrio" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Vidrio</h3>
+                            <p class="price">$99.99</p>
+                            <p class="card-text">vidrio protector para iPhone 15.</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                <div class="card" data-categoria="accesorios" data-subcategoria="cargador">
+                <img src="https://zetaelectronica.com.ar/wp-content/uploads/2017/10/cargadoriphone.jpg" alt="cargador" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Cargador</h3>
+                            <p class="price">$99.99</p>
+                            <p class="card-text">Cable adaptador</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                <div class="card" data-categoria="accesorios" data-subcategoria="airpods">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_819571-MLU74247911605_012024-F.webp" alt="airpods" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">iPhone 14</h3>
+                            <p class="price">$799.99</p>
+                            <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                <!-- iPad -->
+                <div class="card" data-categoria="ipad" data-subcategoria="iPad Air">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_896424-MLA71783367608_092023-F.webp" alt="iPad Air" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">iPad Air</h3>
+                            <p class="price">$799.99</p>
+                            <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                <div class="card" data-categoria="ipad" data-subcategoria="iPad Mini">
+                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_896424-MLA71783367608_092023-F.webp" alt="iPad Mini" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">iPad Mini</h3>
+                            <p class="price">$799.99</p>
+                            <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- MacBook -->
+                <div class="card" data-categoria="macbook" data-subcategoria="MacBook Air">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_896424-MLA71783367608_092023-F.webp" alt="MacBook Air" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">MacBook Air</h3>
+                            <p class="price">$799.99</p>
+                            <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                <div class="card" data-categoria="macbook" data-subcategoria="MacBook Pro">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_896424-MLA71783367608_092023-F.webp" alt="MacBook Pro" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">MacBook Pro</h3>
+                        <p class="price">$799.99</p>
+                        <p class="card-text">Cámara mejorada, pantalla Super Retina XDR y mucho más.</p>
+                        <div class="buttons">
+                            <button class="buy-now">Comprar Ahora</button>
+                            <button class="add-to-cart">Añadir al Carrito</button>
+                        </div>
+                    </div>
+                </div>
+                
+        <!-- volver arriba -->
+        <button id="btn-subir-arriba" title="Volver arriba">
+            <i class="bi bi-arrow-up-circle-fill"></i>
+        </button>
+        <!-- añadir al carrito mens -->
+        <div id="cart-confirmation" class="cart-confirmation">
+            ¡Producto añadido al carrito!
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CompuApple. Todos los derechos reservados.</p>
+    </footer>  
+
+<!-- JavaScript  -->
+    <script>
+       
+// boton volver arriba
+var btnSubir = document.getElementById("btn-subir-arriba");
+btnSubir.onclick = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+let lastScrollPosition = 0;
+// mostrar cuando hace scroll
+window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btnSubir.style.display = "block";
+    } else {
+        btnSubir.style.display = "none";
+    }
+};
+
+
+
+
+// Inicializar contador del carrito
+        let cartCount = 0;
+
+//  botones de añadir al Carrito
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartCounter = document.getElementById('cart-counter');
+        const cartConfirmation = document.getElementById('cart-confirmation');
+
+// aumentar el contador y mostrar el mensaje de confirmación
+ function incrementarCarrito() {
+        cartCount++;
+        cartCounter.textContent = cartCount;
+           
+         cartConfirmation.style.display = 'block';
+            
+            setTimeout(() => {
+                cartConfirmation.style.display = 'none';
+            }, 2000);
+        }
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', incrementarCarrito);
+        });
+
+
+    </script>
+    <script src="/static/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
+>>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
          

@@ -1,6 +1,7 @@
 package main
 
 import (
+<<<<<<< HEAD
 	"context"
 	"database/sql"
 	"fmt"
@@ -190,3 +191,25 @@ func deleteLaptop(ctx context.Context, db *sql.DB, id int64) error {
 // http.HandleFunc("/", homeHandler)
 // http.ListenAndServe(":8080", nil)
 // }
+=======
+	"net/http"
+)
+
+func main() {
+	// static
+	fs := http.FileServer(http.Dir("./static"))
+
+	// Solicitudes HTTP
+	http.Handle("/", fs)
+
+	// Definir puerto
+	port := ":8080"
+	println("Servidor escuchando en el puerto", port)
+
+	// Iniciar servidor
+	err := http.ListenAndServe(port, nil)
+	if err != nil {
+		panic(err)
+	}
+}
+>>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
