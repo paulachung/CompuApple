@@ -1,7 +1,6 @@
 package main
 
 import (
-<<<<<<< HEAD
 	"context"
 	"database/sql"
 	"fmt"
@@ -46,7 +45,7 @@ func main() {
     fmt.Println("Laptop creada con ID:", id)
 
     // Obtener una laptop por ID
-    laptop, err := getLaptopByID(ctx, db, id)
+    laptop, err := getLaptopByID(ctx, db, 3)
     if err != nil {
         log.Fatal("Error al obtener la laptop:", err)
     }
@@ -61,7 +60,7 @@ func main() {
     fmt.Println("Laptop actualizada.")
 
     // Eliminar la laptop
-    err = deleteLaptop(ctx, db, id)
+    err = deleteLaptop(ctx, db, 3)
     if err != nil {
         log.Fatal("Error al eliminar la laptop:", err)
     }
@@ -162,54 +161,3 @@ func deleteLaptop(ctx context.Context, db *sql.DB, id int64) error {
     _, err := db.ExecContext(ctx, query, id)
     return err
 }
-
-
-// package main
-
-// import (
-// "html/template"
-// "net/http"
-// )
-
-// func renderTemplate(w http.ResponseWriter, tmpl string, data interface{}) {
-// templates := template.Must(template.ParseFiles(
-// "templates/index.html",
-// "templates/partials/head.html",
-// ))
-// templates.ExecuteTemplate(w, tmpl, data)
-// }
-
-// func homeHandler(w http.ResponseWriter, r *http.Request) {
-// data := map[string]interface{}{
-// "Title": "CompuApple",
-// }
-// renderTemplate(w, "index.html", data)
-// }
-
-// func main() {
-// http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-// http.HandleFunc("/", homeHandler)
-// http.ListenAndServe(":8080", nil)
-// }
-=======
-	"net/http"
-)
-
-func main() {
-	// static
-	fs := http.FileServer(http.Dir("./static"))
-
-	// Solicitudes HTTP
-	http.Handle("/", fs)
-
-	// Definir puerto
-	port := ":8080"
-	println("Servidor escuchando en el puerto", port)
-
-	// Iniciar servidor
-	err := http.ListenAndServe(port, nil)
-	if err != nil {
-		panic(err)
-	}
-}
->>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a

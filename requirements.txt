@@ -1,0 +1,58 @@
+CREATE DATABASE tecnologia;
+
+CREATE TABLE macbook(
+	id int(3) PRIMARY KEY AUTO_INCREMENT,
+  modelo varchar(20),
+  color varchar(15),
+  medidas varchar(10),
+  ram varchar(10),
+  capacidad_almacenamiento varchar(15),
+  duracion_bateria varchar(15),
+  caracteristicas_generales TEXT
+);
+
+CREATE TABLE ipad(
+	id int(3) PRIMARY KEY AUTO_INCREMENT,
+  modelo varchar(20),
+  color varchar(15),
+  medidas varchar(10),
+  ram varchar(10),
+  capacidad_almacenamiento varchar(15),
+  duracion_bateria varchar(15),
+  caracteristicas_generales TEXT
+);
+
+CREATE TABLE iphone(
+	id int(3) PRIMARY KEY AUTO_INCREMENT,
+  modelo varchar(20),
+  color varchar(15),
+  medidas varchar(10),
+  ram varchar(10),
+  capacidad_almacenamiento varchar(15),
+  duracion_bateria varchar(15),
+  caracteristicas_generales TEXT
+);
+
+CREATE TABLE applewatch(
+	id int(3) PRIMARY KEY AUTO_INCREMENT,
+  modelo varchar(20),
+  color varchar(15),
+  medidas varchar(10),
+  ram varchar(10),
+  capacidad_almacenamiento varchar(15),
+  duracion_bateria varchar(15),
+  caracteristicas_generales TEXT
+);
+
+CREATE TABLE otros(
+  id int AUTO_INCREMENT PRIMARY KEY,
+  nombre varchar(20), --ej. "Auriculares Bluetooth"
+  modelo varchar(20),
+  precio float(5,2),
+  dimensiones varchar(20),
+  peso varchar(10),
+  color varchar(10),
+  tipos_de_conexiones varchar(20),
+  capacidad_de_carga varchar(40), --ara cargadores o dispositivos relacionados con energía.
+  garantia varchar(10) --"1 año"
+)
