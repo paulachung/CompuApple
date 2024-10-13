@@ -1,6 +1,6 @@
 package repository
 
-import "compuApple/borrar/internal/business/domain"
+import "compuApple/internal/business/domain"
 
 type (//todos los metodos del repositorio aca
 	PersonRepositoryInterface interface {
