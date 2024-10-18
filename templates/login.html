@@ -55,22 +55,22 @@
     </header>
     <div id="container">
         <div id="form-container">
-            <form id="login-form" class="form">
+            <form method="POST" action="/login" id="login-form" class="form">
                 <h2>Iniciar Sesión</h2>
 
                 <label for="login-email">Correo electrónico</label>
                 <div class="input-container">
                     <span class="icon"><i class="bi bi-at"></i></span>
-                    <input type="email" id="login-email" placeholder="example@example.com" required>
+                    <input name="nombre" type="text" id="login-email" placeholder="example@example.com" required>
                 </div>
 
                 <label for="login-password">Contraseña</label>
                 <div class="input-container">
                     <span class="icon"><i class="bi bi-key"></i></span>
-                    <input type="password" id="login-password" placeholder="xxxxxxxxx" required>
+                    <input name="password" type="password" id="login-password" placeholder="xxxxxxxxx" required>
                 </div>
 
-                <button class="btn-iniciar-sesion" type="button" onclick="login()">Iniciar Sesión</button>
+                <button class="btn-iniciar-sesion" type="submit" onclick="login()">Iniciar Sesión</button>
                 <p>¿No tenes cuenta? <a href="#" onclick="showRegisterForm()">Registrate acá</a></p>
             </form>
 
@@ -132,7 +132,53 @@
 
     <script src="../static/js/scriptLogin.js"></script>
     <script src="../static/js/script.js"></script>
-
+    <script>
+        /*
+        function login() {
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+        
+            fetch("http://localhost:8000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    alert("Login exitoso");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }       */
+        function login() {
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+        
+            fetch("http://localhost:8000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    // Redirigir a la página de productos
+                    window.location.href = data.redirect;
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        } 
+    </script>
+    
 
 </body>
 

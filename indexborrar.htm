@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Gestion de datos</h1>
+
+    <form method="POST" action="/agregar" class="mb-4">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="edad">Edad:</label>
+        <input type="text" name="edad"  class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+
+    <h2>Lista de Datos</h2>
+    <ul class="list-group">
+      {%for dato in datos %}
+        <li class="list-group-item">
+          <strong>{{dato.nombre}}</strong> - {{dato.edad}} year
+          <form method="POST" action="/modificar/{{dato.nombre}}" style="display: inlinel;"></form>
+        </li>
+      {%endfor%}
+    </ul>
+  </div>
+</body>
+</html>
