@@ -17,16 +17,18 @@ conn = pymysql.connect(
 @app.route("/index")
 def index():
     return render_template("index.html")
-
-@app.route('/admin', methods=['GET', 'POST'])
-def admin():
+@app.route("/add", methods=['POST'])
+def add():    
+    print("entro ================")
     if request.method == 'POST':
+        print("2==================")
         # Obtener datos del formulario
         nombre = request.form['product-name']
         descripcion = request.form['product-description']
         precio = request.form['product-price']
         categoria = request.form['product-category']
         imagen = request.files['product-image']
+        print(categoria, '-----')
 
         # Guardar la imagen en una carpeta de tu proyecto
         if imagen and imagen.filename != '':
@@ -39,7 +41,7 @@ def admin():
         try:
             cursor = conn.cursor()
             # Determinar la tabla en función de la categoría
-            query = f"INSERT INTO {categoria} (nombre, descripcion, precio, imagen) VALUES (%s, %s, %s, %s)"
+            query = f"INSERT INTO {categoria} (nombre, descripcion, precio, imagen_path) VALUES (%s, %s, %s, %s)"
             cursor.execute(query, (nombre, descripcion, precio, imagen_path))
             conn.commit()
             cursor.close()
@@ -49,8 +51,11 @@ def admin():
             print(f"Error: {err}")
             return "Hubo un error al guardar el producto en la base de datos."
 
+@app.route('/admin', methods=['GET'])
+def admin(): 
     # Renderizar la página HTML del administrador
     return render_template('admin.html')
+
 
 @app.route('/login', methods=['POST','GET'])
 def login():
