@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--diseño sea responsivo y se ajusta a pantallas móviles.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompuApple - Login/Registro</title>
+    <link rel="stylesheet" href="../static/css/stylesLogin.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/mediaQueries.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <!-- Font Awesome iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    {% include "partials/header.html" %}
+    <div id="container">
+        <div id="form-container">
+            <form method="GET" action="/index" id="login-form" class="form">
+                <h2>Iniciar Sesión</h2>
+
+                <label for="login-email">Correo electrónico</label>
+                <div class="input-container">
+                    <span class="icon"><i class="bi bi-at"></i></span>
+                    <input id="login-email" placeholder="Mariano" required>
+                </div>
+
+                <label for="login-password">Contraseña</label>
+                <div class="input-container">
+                    <span class="icon"><i class="bi bi-key"></i></span>
+                    <input type="password" id="login-password" placeholder="xxxxxxxxx" required>
+                </div>
+
+                <button class="btn-iniciar-sesion" type="submit" onclick="login()">Iniciar Sesión</button>
+                <p>¿No tenes cuenta? <a href="#" onclick="showRegisterForm()">Registrate acá</a></p>
+            </form>
+
+            <form id="register-form" class="form hidden">
+                <h2>Registro</h2>
+
+                <label for="register-name">Nombre</label>
+                <div class="input-container">
+                    <span class="icon"><i class="bi bi-person-fill"></i></span>
+                    <input type="text" id="register-name" placeholder="Nombre" required>
+                </div>
+
+                <label for="register-email">Correo electrónico</label>
+                <div class="input-container">
+                    <span class="icon"><i class="bi bi-at"></i></span>
+                    <input type="email" id="register-email" placeholder="example@gmail.com" required>
+                </div>
+
+                <label for="register-direccion">Dirección</label>
+                <div class="input-container">
+                    <span class="icon"><i class="bi bi-geo-alt"></i></span>
+                    <input type="text" id="register-direccion" placeholder="Dirección" required>
+                </div>
+
+                <label for="register-telefono">Número de Teléfono</label>
+                <div class="input-container">
+                    <span class="icon"><i class="bi bi-phone-fill"></i></span>
+                    <input type="tel" id="register-telefono" placeholder="Número de Teléfono" required>
+                </div>
+
+                <label for="register-password">Contraseña</label>
+                <div class="input-container">
+                    <span class="icon"><i class="bi bi-key"></i></span>
+                    <input type="password" id="register-password" placeholder="Contraseña" required>
+                </div>
+
+                <button class="btn-iniciar-sesion" type="button" onclick="login()">Iniciar Sesión</button>
+                <p>¿Ya tenes cuenta? <a href="#" onclick="showLoginForm()">Inicia sesión acá</a></p>
+            </form>
+        </div>
+    </div>
+
+    <button id="btn-subir-arriba" title="Volver arriba">
+        <i class="bi bi-arrow-up-circle-fill"></i>
+    </button>
+
+    <footer>
+        <p>&copy; 2024 CompuApple. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-O4XmD90ZRGF9/tp6Hq9z6w4Kyl4YXvqjaElCh1F/5S0cC2XsCtwZ0p5DgI9orO/m" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93K/oYVQdiQjauT61/8CKWeLdr6+wUczI2t7XYo0+zWjgmEildkKzwErnoEdyc"
+        crossorigin="anonymous"></script>
+
+    <script src="../static/js/scriptLogin.js"></script>
+    <script src="../static/js/script.js"></script>
+
+
+</body>
+
+</html>

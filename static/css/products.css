@@ -1,0 +1,248 @@
+/* ----------- buscador ----------- */
+section.buscador {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.buscador input {
+    padding: 0.5rem;
+    width: 300px;
+    border: 1px solid #638ea8;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.buscador button {
+    padding: 0.5rem 1rem;
+    background-color: #333333;
+    border: none;
+    color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.buscador button:hover {
+    background-color: #638ea8;
+}
+
+/* ----------- Contenedor Principal ----------- */
+.contenedor {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+    
+
+
+/* ----------- menu Lateral ----------- */
+.menu-lateral {
+    width: 250px; 
+    max-height: 800px; 
+    overflow-y: auto; 
+    background-color: #333333; 
+    padding: 20px;
+    margin-bottom: 20px; 
+    border-radius: 8px; 
+}
+
+.menu-lateral h2 {
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral ul li {
+    margin: 0.5rem 0;
+}
+
+.menu-lateral ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem; 
+    display: block;
+}
+
+.menu-lateral ul li a:hover {
+    color: #638ea8;
+}
+
+.menu-lateral ul li .dropdown-menu {
+    background-color: #333333;
+    border: 1px solid #638ea8;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out; 
+}
+
+.menu-lateral ul li .dropdown-menu a {
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+.menu-lateral ul li .dropdown-menu a:hover {
+    background-color: #638ea8;
+    color: #000000;
+}
+
+.menu-lateral ul li .dropdown-menu a.active {
+    background-color: #555555;
+    color: #ffffff;
+}
+
+/* ----------- Sección de Productos ----------- */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem; 
+    width: 100%;
+    padding: 30px 20px; 
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1rem;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.card-body .card-text {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.card-body .price {
+    font-size: 1.25rem;
+    color: #020202;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+/* ----------- botones de la Tarjeta ----------- */
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 0.3rem 0.8rem; 
+    border: 1px solid #020202; 
+    border-radius: 5px;
+    background-color: #020202;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #638ea8; 
+    transform: translateY(-2px); 
+}
+
+.buy-now {
+    font-weight: bold;
+}
+
+.add-to-cart {
+    font-weight: normal;
+}
+
+
+.producto .descripcion {
+    font-size: 12px;
+    color: #333333;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.card img {
+    width: 100%; 
+    max-width: 180px; 
+    height: auto; 
+    object-fit: contain; 
+}
+
+/* -----------  mensaje de confirmación ----------- */
+.cart-confirmation {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #638ea8;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    transition: opacity 0.5s ease;
+}
+.cart-counter {
+    background-color: red; /* Fondo del contador */
+    color: white; /* Color del número */
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 9px;
+    position: relative;
+    top: -5px;  /* Ajusta según la posición del ícono */
+    right: 10px; /* Ajusta según la posición del ícono */
+}
+
+/* Para centrar el mensaje de "No se encontraron productos" */
+.no-resultados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #888;
+}
+
+.no-resultados p {
+    margin: 0;
+}

@@ -1,0 +1,91 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    /* Espacio desde el encabezado */
+}
+
+.input-container {
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    /* Espacio entre los campos */
+}
+
+.input-container .icon {
+    margin-right: 10px;
+    /* Espacio entre el ícono y el input */
+}
+
+#form-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    /* Ancho máximo del formulario */
+    width: 100%;
+    /* Asegura que el formulario no sea más ancho que su contenedor */
+    text-align: center;
+    max-width: 100%;
+    /* Asegura que el formulario no sea más ancho que el contenedor en pantallas chicas */
+    margin: 0 auto;
+    /* Centrar el formulario */
+    margin-bottom: 70px;
+    /* Ajusta el valor según sea necesario */
+    margin-top: 50px;
+    /* Ajusta el valor según sea necesario */
+}
+
+.form {
+    transition: opacity 0.3s ease-in-out;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 8px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.btn-iniciar-sesion {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-iniciar-sesion:hover {
+    background-color: #5c5857;
+}
+
+/* Efecto hover para todos los enlaces y el icono del modo oscuro */
+.navbar-nav .nav-link:hover,
+.dark-mode-toggle:hover {
+    color: rgb(134, 208, 162);
+}
