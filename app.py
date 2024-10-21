@@ -55,10 +55,7 @@ def add():
             print(f"Error: {err}")
             return "Hubo un error al guardar el producto en la base de datos."
 
-@app.route('/admin', methods=['GET'])
-def admin(): 
-    # Renderizar la página HTML del administrador
-    return render_template('admin.html')
+
 
 
 @app.route('/login', methods=['POST','GET'])
