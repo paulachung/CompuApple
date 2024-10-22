@@ -10,6 +10,7 @@ function showLoginForm() {
     document.getElementById('login-form').classList.remove('hidden');
 }
 
+<<<<<<< HEAD
 // Función para manejar el inicio de sesión
 function login() {
     const isAdmin = document.getElementById('admin-checkbox').checked;
@@ -19,6 +20,9 @@ function login() {
     console.log(`Iniciar sesión: ${email}, Admin: ${isAdmin}`);
 }
 
+=======
+// No es necesario manejar el inicio de sesión aquí; el formulario lo enviará automáticamente
+>>>>>>> origin/master
 // Función para manejar el registro
 function register() {
     const name = document.getElementById('register-name').value;
@@ -28,14 +32,22 @@ function register() {
     console.log(`Registro: ${name}, ${email}`);
 }
 
+<<<<<<< HEAD
 // boton volver arriba
+=======
+// Botón volver arriba
+>>>>>>> origin/master
 var btnSubir = document.getElementById("btn-subir-arriba");
 btnSubir.onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 let lastScrollPosition = 0;
+<<<<<<< HEAD
 // mostrar cuando hace scroll
+=======
+// Mostrar el botón cuando se hace scroll
+>>>>>>> origin/master
 window.onscroll = function () {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         btnSubir.style.display = "block";

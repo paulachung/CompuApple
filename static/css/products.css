@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 /* ----------- buscador ----------- */
 section.buscador {
     display: flex;
@@ -247,6 +250,7 @@ section.buscador {
 .no-resultados p {
     margin: 0;
 }
+<<<<<<< HEAD
 =======
 * {
     margin: 0;
@@ -646,3 +650,5 @@ footer {
 }
 
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+>>>>>>> origin/master

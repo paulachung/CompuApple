@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 * {
     margin: 0;
@@ -118,6 +119,8 @@ p {
 }
 
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+>>>>>>> origin/master
 /* ------------- Carousel Bienvenida -------------*/
 #carouselBienvenida {
     margin: 0;
@@ -139,10 +142,14 @@ p {
     width: 100%;
     height: 100%;
 <<<<<<< HEAD
+<<<<<<< HEAD
     object-fit: cover;
 =======
     object-fit: contain; /* Mantiene las proporciones de la imagen sin distorsionar */
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+    object-fit: cover;
+>>>>>>> origin/master
     background-color: #000;
 }
 
@@ -157,6 +164,9 @@ p {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 .carousel-caption {
     position: absolute;
     bottom: 50px;
@@ -323,6 +333,7 @@ p {
     padding: 8px 10px;
     border-radius: 4px;
     font-size: 10px;
+<<<<<<< HEAD
 =======
 /* ------------- Productos Destacados -------------*/
 .TituloProductosDestacados {
@@ -392,6 +403,8 @@ p {
     border-radius: 4px;
     font-size: 12px;
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+>>>>>>> origin/master
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
@@ -401,15 +414,22 @@ p {
 
 .buy-now:hover, .add-to-cart:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color: #638ea8;
 =======
     background-color: rgb(247, 152, 94);
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+    background-color: #638ea8;
+>>>>>>> origin/master
     color: rgb(245, 245, 247);
     border: none;
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 
 
 
@@ -435,6 +455,7 @@ p {
     overflow-x: auto;
     margin: 20px;
     border: none;
+<<<<<<< HEAD
 =======
 /* ------------- Categorías -------------*/
 #categorias {
@@ -455,6 +476,8 @@ p {
     flex-wrap: wrap;
     margin-top: 0 20px;
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+>>>>>>> origin/master
 }
 
 .categoria-card {
@@ -464,11 +487,17 @@ p {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 <<<<<<< HEAD
+<<<<<<< HEAD
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 =======
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+>>>>>>> origin/master
 }
 
 .categoria-card:hover {
@@ -477,6 +506,9 @@ p {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 /* Contenedor de imagen */
 .img-container {
     width: 100%;
@@ -493,12 +525,15 @@ p {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+<<<<<<< HEAD
 =======
 .categoria-card img {
     width: 200px;
     height: 200px;
     object-fit: cover;
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+>>>>>>> origin/master
 }
 
 .categoria-card h3 {
@@ -507,6 +542,9 @@ p {
     left: 0;
     right: 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
     height: 40px;
     padding: 0;
     margin: 0;
@@ -529,6 +567,7 @@ p {
 .categoria-card h3 span {
     display: block;
     text-align: center;
+<<<<<<< HEAD
 =======
     padding: 10px 0;
     font-size: 24px;
@@ -561,4 +600,6 @@ footer {
 .dark-mode-toggle:hover {
     color: rgb(134, 208, 162);
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+>>>>>>> origin/master
 }

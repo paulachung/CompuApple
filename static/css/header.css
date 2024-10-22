@@ -180,6 +180,9 @@ p {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 /* ----------- volver arriba----------- */
 #btn-subir-arriba {
     display: none;
@@ -199,8 +202,11 @@ p {
     color: #000000; 
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+>>>>>>> origin/master
 /* ------------- Estilo Footer -------------*/
 footer {
     background-color: rgb(22,22,22);
@@ -209,9 +215,13 @@ footer {
     padding: 10px 0;
     border-top: 1px solid rgb(245, 245, 247);
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-top: 50px;
 =======
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+    margin-top: 50px;
+>>>>>>> origin/master
 }
   
 /* ------------- Modo Oscuro -------------*/
@@ -220,10 +230,14 @@ footer {
     color: rgb(245, 245, 247);
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
   
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+
+>>>>>>> origin/master
 .dark-mode-toggle {
     cursor: pointer;
     font-size: 20px;
@@ -236,6 +250,9 @@ footer {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 /* Login */
 .theme-dark #container {
     background-color: rgb(22,22,22);
@@ -267,6 +284,7 @@ footer {
   
 .theme-dark .about-content p {
     color: rgb(200, 200, 200);
+<<<<<<< HEAD
 =======
 /* ----------- volver arriba----------- */
 #btn-subir-arriba {
@@ -286,4 +304,6 @@ footer {
 #btn-subir-arriba:hover {
     color: #000000;
 >>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
+=======
+>>>>>>> origin/master
 }

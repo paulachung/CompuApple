@@ -21,6 +21,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <header class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
@@ -56,18 +57,32 @@
     <div id="container">
         <div id="form-container">
             <form method="POST" action="/login" id="login-form" class="form">
+=======
+    {% include "partials/header.html" %}
+    <div id="container">
+        <div id="form-container">
+            <form method="GET" action="/index" id="login-form" class="form">
+>>>>>>> origin/master
                 <h2>Iniciar Sesión</h2>
 
                 <label for="login-email">Correo electrónico</label>
                 <div class="input-container">
                     <span class="icon"><i class="bi bi-at"></i></span>
+<<<<<<< HEAD
                     <input name="nombre" type="text" id="login-email" placeholder="example@example.com" required>
+=======
+                    <input id="login-email" placeholder="Mariano" required>
+>>>>>>> origin/master
                 </div>
 
                 <label for="login-password">Contraseña</label>
                 <div class="input-container">
                     <span class="icon"><i class="bi bi-key"></i></span>
+<<<<<<< HEAD
                     <input name="password" type="password" id="login-password" placeholder="xxxxxxxxx" required>
+=======
+                    <input type="password" id="login-password" placeholder="xxxxxxxxx" required>
+>>>>>>> origin/master
                 </div>
 
                 <button class="btn-iniciar-sesion" type="submit" onclick="login()">Iniciar Sesión</button>
@@ -132,6 +147,7 @@
 
     <script src="../static/js/scriptLogin.js"></script>
     <script src="../static/js/script.js"></script>
+<<<<<<< HEAD
     <script>
         /*
         function login() {
@@ -179,6 +195,9 @@
         } 
     </script>
     
+=======
+
+>>>>>>> origin/master
 
 </body>
 

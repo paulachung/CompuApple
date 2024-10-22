@@ -5,6 +5,7 @@ import pymysql
 
 app = Flask(__name__)
 
+<<<<<<< HEAD
 # Configuración de la conexión a la base de datos
 conn = pymysql.connect(
     host= 'localhost',
@@ -13,10 +14,26 @@ conn = pymysql.connect(
     port= 3307,
     database= "tecnologia"
 )
+=======
+def connection():
+  # Configuración de la conexión a la base de datos
+  conn = pymysql.connect(
+      host= 'localhost',
+      user= 'root',  
+      password= '',
+      port= 3307,
+      database= "tecnologia"
+  )
+  
+>>>>>>> origin/master
 @app.route("/")
 @app.route("/index")
 def index():
     return render_template("index.html")
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 @app.route("/add", methods=['POST'])
 def add():    
     print("entro ================")
@@ -39,6 +56,10 @@ def add():
 
         # Conectar a la base de datos y guardar el producto
         try:
+<<<<<<< HEAD
+=======
+            conn = connection()
+>>>>>>> origin/master
             cursor = conn.cursor()
             # Determinar la tabla en función de la categoría
             query = f"INSERT INTO {categoria} (nombre, descripcion, precio, imagen_path) VALUES (%s, %s, %s, %s)"
@@ -51,10 +72,14 @@ def add():
             print(f"Error: {err}")
             return "Hubo un error al guardar el producto en la base de datos."
 
+<<<<<<< HEAD
 @app.route('/admin', methods=['GET'])
 def admin(): 
     # Renderizar la página HTML del administrador
     return render_template('admin.html')
+=======
+
+>>>>>>> origin/master
 
 
 @app.route('/login', methods=['POST','GET'])
@@ -65,6 +90,10 @@ def login():
             password = request.form['password']
             # Conectar a la base de datos y verificar el usuario
             try:
+<<<<<<< HEAD
+=======
+                conn = connection()
+>>>>>>> origin/master
                 cursor = conn.cursor()
                 # Verificar si el usuario y contraseña existen
                 query = "SELECT * FROM users WHERE nombre = %s AND password = %s"
@@ -88,8 +117,19 @@ def login():
     return render_template("login.html")
 
 # Ruta para mostrar la página de productos después de iniciar sesión
+<<<<<<< HEAD
 @app.route('/products.html')
 def products():
     return render_template('products.html')
+=======
+@app.route('/products')
+def products():
+    return render_template('products.html')
+
+@app.route('/aboutUs')
+def aboutUs():
+    return render_template('aboutUs.html')
+
+>>>>>>> origin/master
 if __name__ == '__main__':
     app.run(debug=True)
