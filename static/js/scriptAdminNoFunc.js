@@ -165,8 +165,3 @@ window.onscroll = function () {
         btnSubir.style.display = "none";
     }
 };
-
-
-
-
-

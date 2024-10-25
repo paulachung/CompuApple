@@ -179,7 +179,6 @@ p {
     }
 }
 
-<<<<<<< HEAD
 /* ----------- volver arriba----------- */
 #btn-subir-arriba {
     display: none;
@@ -199,8 +198,6 @@ p {
     color: #000000; 
 }
 
-=======
->>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
 /* ------------- Estilo Footer -------------*/
 footer {
     background-color: rgb(22,22,22);
@@ -208,10 +205,7 @@ footer {
     text-align: center;
     padding: 10px 0;
     border-top: 1px solid rgb(245, 245, 247);
-<<<<<<< HEAD
     margin-top: 50px;
-=======
->>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
 }
   
 /* ------------- Modo Oscuro -------------*/
@@ -219,11 +213,7 @@ footer {
     background-color: rgb(22,22,22);
     color: rgb(245, 245, 247);
 }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
 .dark-mode-toggle {
     cursor: pointer;
     font-size: 20px;
@@ -235,7 +225,6 @@ footer {
     color: #638ea8;
 }
 
-<<<<<<< HEAD
 /* Login */
 .theme-dark #container {
     background-color: rgb(22,22,22);
@@ -267,23 +256,4 @@ footer {
   
 .theme-dark .about-content p {
     color: rgb(200, 200, 200);
-=======
-/* ----------- volver arriba----------- */
-#btn-subir-arriba {
-    display: none;
-    position: fixed;
-    bottom: 70px;
-    right: 20px;
-    color: #333333;
-    border: none;
-    border-radius: 30%;
-    padding: 5px;
-    font-size: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#btn-subir-arriba:hover {
-    color: #000000;
->>>>>>> b5a86c2ba6ea76aaeb42e3b8a442beb0adc3908a
 }

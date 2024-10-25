@@ -1,0 +1,119 @@
+CREATE DATABASE tecnologia_v2;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    direccion VARCHAR(255),
+    telefono VARCHAR(255),
+    password VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE mac (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    img VARCHAR(200),
+    productName VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    dimensiones VARCHAR(100) NOT NULL,
+
+    screenSizeMac VARCHAR(50),
+    capacidadMac VARCHAR(50),
+    memoriaMac VARCHAR(50),
+    procesadorMac VARCHAR(100),
+    softwareMac VARCHAR(100),
+    conexionInalambricaMac VARCHAR(100),
+    audioMac VARCHAR(100),
+    tecladoMac VARCHAR(100),
+    camaraMac VARCHAR(100),
+    formatoMac VARCHAR(100),
+    bateriaMac VARCHAR(100)
+);
+
+CREATE TABLE iphone (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    img VARCHAR(200),
+    productName VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    dimensiones VARCHAR(100) NOT NULL,
+
+    screenSizeIphone VARCHAR(50),
+    resolutionIphone VARCHAR(100),
+    resistenciaIphone VARCHAR(255),
+    procesadorIphone VARCHAR(100),
+    camaraIphone VARCHAR(100),
+    faceidIphone VARCHAR(50),
+    memoryIphone VARCHAR(50),
+    geolocalizacion VARCHAR(100),
+    reproduccionIphone TEXT,
+    sensoresIphone TEXT,
+    grabacionIphone TEXT,
+    siriIphone VARCHAR(100),
+    bateriaIphone VARCHAR(100)
+);
+
+CREATE TABLE ipad (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    img VARCHAR(200),
+    productName VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    dimensiones VARCHAR(100) NOT NULL,
+
+    screenSizeIpad VARCHAR(50),
+    capacidadIpad VARCHAR(50),
+    memoriaipad VARCHAR(50),
+    procesadorIpad VARCHAR(100),
+    camaraIpad VARCHAR(100),
+    softwareIpad VARCHAR(100),
+    conexioninalambricaIpad VARCHAR(100),
+    audioIpad VARCHAR(100),
+    geolocalizacionIpad VARCHAR(100),
+    bateriaIpad VARCHAR(100),
+    sensoresIpad VARCHAR(100),
+    tuchIdIpad VARCHAR(50),
+    siriIpad VARCHAR(100)
+);
+
+CREATE TABLE airpods (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    img VARCHAR(200),
+    productName VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    dimensiones VARCHAR(100) NOT NULL,
+    
+    batteryLifeAirpods VARCHAR(50),
+    noiseCancellation BOOLEAN,
+    sensoresAirpods VARCHAR(100)
+);
+
+CREATE TABLE wach (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    img VARCHAR(200),
+    productName VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    dimensiones VARCHAR(100) NOT NULL,
+    
+    batteryLifeWach VARCHAR(50),
+    sensoresWach VARCHAR(100),
+    modos VARCHAR(100)
+);
+
+CREATE TABLE appleVisionpro (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    img VARCHAR(200),
+    productName VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    dimensiones VARCHAR(100) NOT NULL,
+
+    screenSizeVison VARCHAR(50),
+    batteryVisionPro VARCHAR(50),
+    sensoresVisionPro VARCHAR(255),
+    modosVisionPro VARCHAR(255),
+    juegos INT
+);
