@@ -5,6 +5,7 @@ import users
 app = Flask(__name__)
 app.secret_key = 'compu_apple'
 
+<<<<<<< HEAD
 # Configuración de la conexión a la base de datos
 db_config = {
     'host': 'localhost',
@@ -20,6 +21,7 @@ def connection():
     user= 'root',  
     password= '',
     port= 3307,
+<<<<<<< HEAD
     database= "tecnologia_v3"
   )
   return conn
@@ -33,6 +35,42 @@ def home():
 @app.route('/index')
 def index():
     return render_template('index.html')
+=======
+    database= "tecnologia"
+)
+=======
+def connection():
+  # Configuración de la conexión a la base de datos
+  conn = pymysql.connect(
+      host= 'localhost',
+      user= 'root',  
+      password= '',
+      port= 3307,
+      database= "tecnologia"
+  )
+  
+>>>>>>> origin/master
+@app.route("/")
+@app.route("/index")
+def index():
+    return render_template("index.html")
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
+@app.route("/add", methods=['POST'])
+def add():    
+    print("entro ================")
+    if request.method == 'POST':
+        print("2==================")
+        # Obtener datos del formulario
+        nombre = request.form['product-name']
+        descripcion = request.form['product-description']
+        precio = request.form['product-price']
+        categoria = request.form['product-category']
+        imagen = request.files['product-image']
+        print(categoria, '-----')
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
 
 @app.route('/products', methods=["GET"])
 def products():
@@ -116,6 +154,7 @@ def updateIphone(id):
         conn = connection()
         cursor = conn.cursor()
         try:
+<<<<<<< HEAD
             productName = "Iphone 20"
             price = "asd"
             color = "blue"
@@ -144,6 +183,16 @@ def updateIphone(id):
             """
             cursor.execute(query,(productName, price, color, dimensiones, screenSizeIphone, resolutionIphone, resistenciaIphone, procesadorIphone, camaraIphone, faceidIphone, memoryIphone, geolocalizacion, reproduccionIphone, sensoresIphone, grabacionIphone, siriIphone, bateriaIphone, id))
             
+=======
+<<<<<<< HEAD
+=======
+            conn = connection()
+>>>>>>> origin/master
+            cursor = conn.cursor()
+            # Determinar la tabla en función de la categoría
+            query = f"INSERT INTO {categoria} (nombre, descripcion, precio, imagen_path) VALUES (%s, %s, %s, %s)"
+            cursor.execute(query, (nombre, descripcion, precio, imagen_path))
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
             conn.commit()
             cursor.close()
             conn.close()
@@ -168,10 +217,21 @@ def deleteIphone(id):
             cursor.execute(query, (id,))
             conn.commit()
 
+<<<<<<< HEAD
             response = jsonify({"Response": "Se eliminó correctamente"})
         else:
             # Si no existe, retornar un mensaje adecuado
             response = jsonify({"Response": "No existe un producto con ese id en la base de datos"})
+=======
+<<<<<<< HEAD
+@app.route('/admin', methods=['GET'])
+def admin(): 
+    # Renderizar la página HTML del administrador
+    return render_template('admin.html')
+=======
+
+>>>>>>> origin/master
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
 
         cursor.close()
         conn.close()
@@ -180,5 +240,57 @@ def deleteIphone(id):
         return jsonify({"Fallo la conexión": str(e)}), 500
         
 
+<<<<<<< HEAD
+=======
+@app.route('/login', methods=['POST','GET'])
+def login():
+    if request.method == 'POST':
+        while True:
+            nombre = request.form['nombre'] 
+            password = request.form['password']
+            # Conectar a la base de datos y verificar el usuario
+            try:
+<<<<<<< HEAD
+=======
+                conn = connection()
+>>>>>>> origin/master
+                cursor = conn.cursor()
+                # Verificar si el usuario y contraseña existen
+                query = "SELECT * FROM users WHERE nombre = %s AND password = %s"
+                cursor.execute(query, (nombre, password))
+                user = cursor.fetchone()
+
+                cursor.close()
+                conn.close()
+
+                if user:
+                    # Si el usuario es válido, redirigir a la página de productos
+                    # return jsonify({"redirect": "/products"}), 200
+                    return render_template("/products.html")
+                else:
+                    # Si el login falla, enviar un error
+                    return jsonify({"error": "Usuario o contraseña incorrectos"}), 401
+
+            except pymysql.MySQLError as err:
+                print(f"Error: {err}")
+                return jsonify({"error": "Error de servidor"}), 500
+    return render_template("login.html")
+
+# Ruta para mostrar la página de productos después de iniciar sesión
+<<<<<<< HEAD
+@app.route('/products.html')
+def products():
+    return render_template('products.html')
+=======
+@app.route('/products')
+def products():
+    return render_template('products.html')
+
+@app.route('/aboutUs')
+def aboutUs():
+    return render_template('aboutUs.html')
+
+>>>>>>> origin/master
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,6 +53,10 @@
             </div>
         </div>
     </header>
+=======
+<<<<<<< HEAD
+{% extends "partials/base.html" %}
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
 
     <div id="admin-container">
         <button id="add-product-btn">Agregar Producto</button>
@@ -282,6 +287,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
     <button id="btn-subir-arriba" title="Volver arriba">
         <i class="bi bi-arrow-up-circle-fill"></i>
@@ -307,3 +313,60 @@
 </body>
 
 </html>
+=======
+=======
+{% extends "base.html" %}
+{% block content %}
+<!--
+    conn 
+    es_admin = conn.cursor('select es_admin from users')//true
+    {% if es_admin %}
+    <a href='admin.htmll'></a>
+    admin
+    {% else %}
+    <a href='index.html'></a>
+    user nombrre
+    {% endif %}
+-->
+
+<link rel="stylesheet" href="../static/css/styleAdmin.css">
+
+<div id="admin-container">
+    <button id="add-product-btn">Agregar Producto</button>
+    <div id="product-list" class="product-list">
+        <!-- Tarjetas de productos que se agregan dinámicamente aca -->
+    </div>
+    <button id="delete-selected-btn">Eliminar Seleccionados</button>
+
+    <!-- Modal para agregar/modificar productos -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="form-title">Agregar Producto</h2>
+            <form id="product-form">
+                <input type="text" id="product-name" placeholder="Nombre del producto" required>
+                <input type="text" id="product-description" placeholder="Descripción" required>
+                <input type="number" id="product-price" placeholder="Precio" required>
+                <input type="file" id="product-image" accept="image/*" >
+                <input type="hidden" id="product-id">
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-O4XmD90ZRGF9/tp6Hq9z6w4Kyl4YXvqjaElCh1F/5S0cC2XsCtwZ0p5DgI9orO/m" crossorigin="anonymous">
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93K/oYVQdiQjauT61/8CKWeLdr6+wUczI2t7XYo0+zWjgmEildkKzwErnoEdyc" crossorigin="anonymous">
+    </script>
+
+<script src="../static/js/scriptAdmin.js"></script>
+<script src="../static/js/script.js"></script>
+>>>>>>> origin/master
+{% endblock content %}
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -261,3 +262,178 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
+=======
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Carousel Bienvenida -->
+<section id="bienvenida">
+    <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="index.html">
+                    <img src="/static/img/logogo.png" class="d-block w-100" alt="Slide 1">
+                    <div class="carousel-caption">
+                        <h5>Bienvenido a CompuApple</h5>
+                        <p>Encuentra todos los productos de Apple al mejor precio</p>
+                    </div>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="products.html">
+                    <img src="/static/img/slide2productos.jpg" class="d-block w-100" alt="Slide 2">
+                    <div class="carousel-caption">
+                        <h5>Productos</h5>
+                        <p>Descubre todos nuestros productos</p>
+                    </div>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="products.html">
+                    <img src="/static/img/slide3iphone.jpg" class="d-block w-100" alt="Slide 3">
+                    <div class="carousel-caption">
+                        <h5>Novedades</h5>
+                        <p>Ya llegó el nuevo iPhone 16</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+            </button>
+    </div>
+</section>
+
+<!-- Productos Destacados -->
+<section id="productosDestacados" class="mt-5">
+    <div class="container">
+        <h2 class="TituloProductosDestacados">Productos destacados</h2>
+        
+        <!-- Contenedor Deslizable -->
+        <div class="scroll-container">
+            <div class="wrapper">
+                <div class="single-card">
+                    <div class="img-area">
+                        <img src="/static/img/product1.png" alt="Producto 1">
+                    </div>
+                    <div class="info">
+                        <h3>MacBook Air 15" M3 $3.000.000</h3>
+                        <div class="buttons">
+                            <button class="buy-now">Comprar ahora</button>
+                            <button class="add-to-cart">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="single-card">
+                    <div class="img-area">
+                        <img src="/static/img/iphone15promax.jpg" alt="Producto 2">
+                    </div>
+                    <div class="info">
+                        <h3>iPhone 15 Pro Max $2.500.000</h3>
+                        <div class="buttons">
+                            <button class="buy-now">Comprar ahora</button>
+                            <button class="add-to-cart">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="single-card small-image">
+                    <div class="img-area">
+                        <img src="/static/img/IPAD12.jpg" alt="Producto 3">
+                    </div>
+                    <div class="info">
+                        <h3>iPad Pro 12.9' $2.100.000</h3>
+                        <div class="buttons">
+                            <button class="buy-now">Comprar ahora</button>
+                            <button class="add-to-cart">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="single-card">
+                    <div class="img-area">
+                        <img src="/static/img/watchdestacado.jpg" alt="Producto 4">
+                    </div>
+                    <div class="info">
+                        <h3>Apple Watch Series 9 $1.012.000</h3>
+                        <div class="buttons">
+                            <button class="buy-now">Comprar ahora</button>
+                            <button class="add-to-cart">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Categorías -->
+<section id="categorias" class="mt-5">
+    <div class="container">
+        <h2 class="TituloCategorias">Categorías</h2>
+
+        <!-- Contenedor Deslizable -->
+        <div class="scroll-container-categorias">
+            <div class="categorias-wrapper">
+                <!-- Tarjeta de categoría -->
+                <a href="products.html" class="categoria-card">
+                    <div class="img-container">
+                        <img src="/static/img/mac.jpeg" alt="Mac">
+                    </div>
+                    <h3>Mac</h3>
+                </a>
+
+                <a href="products.html" class="categoria-card">
+                    <div class="img-container">
+                        <img src="/static/img/iPhone.jpeg" alt="iPhone">
+                    </div>
+                    <h3>iPhone</h3>
+                </a>
+
+                <a href="products.html" class="categoria-card">
+                    <div class="img-container">
+                        <img src="/static/img/iPad.jpeg" alt="iPad">
+                    </div>
+                    <h3>iPad</h3>
+                </a>
+
+                <a href="products.html" class="categoria-card">
+                    <div class="img-container">
+                        <img src="/static/img/watch.jpeg" alt="Watch">
+                    </div>
+                    <h3>Watch</h3>
+                </a>
+
+                <a href="products.html" class="categoria-card">
+                    <div class="img-container">
+                        <img src="/static/img/AppleVisionPro.jpg" alt="Apple vision pro">
+                    </div>
+                    <h3>Apple vision pro</h3>
+                </a>
+
+                <a href="products.html" class="categoria-card">
+                    <div class="img-container">
+                        <img src="/static/img/airPods.jpeg" alt="Accesorios">
+                    </div>
+                    <h3>Accesorios</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+>>>>>>> origin/master

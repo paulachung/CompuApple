@@ -21,6 +21,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <header class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index">
@@ -56,19 +57,45 @@
 
     <div id="container">
         <div id="form-container">
+<<<<<<< HEAD
             <form id="login-form" class="form" method="POST" action="/login">
+=======
+            <form method="POST" action="/login" id="login-form" class="form">
+=======
+    {% include "partials/header.html" %}
+    <div id="container">
+        <div id="form-container">
+            <form method="GET" action="/index" id="login-form" class="form">
+>>>>>>> origin/master
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
                 <h2>Iniciar Sesión</h2>
 
                 <label for="login-email">Correo electrónico</label>
                 <div class="input-container">
                     <span class="icon"><i class="bi bi-at"></i></span>
+<<<<<<< HEAD
                     <input type="email" id="login-email" name="email" placeholder="example@example.com" required>
+=======
+<<<<<<< HEAD
+                    <input name="nombre" type="text" id="login-email" placeholder="example@example.com" required>
+=======
+                    <input id="login-email" placeholder="Mariano" required>
+>>>>>>> origin/master
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
                 </div>
 
                 <label for="login-password">Contraseña</label>
                 <div class="input-container">
                     <span class="icon"><i class="bi bi-key"></i></span>
+<<<<<<< HEAD
                     <input type="password" id="login-password" name="password" placeholder="xxxxxxxxx" required>
+=======
+<<<<<<< HEAD
+                    <input name="password" type="password" id="login-password" placeholder="xxxxxxxxx" required>
+=======
+                    <input type="password" id="login-password" placeholder="xxxxxxxxx" required>
+>>>>>>> origin/master
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
                 </div>
 
                 <button class="btn-iniciar-sesion" type="submit">Iniciar Sesión</button>
@@ -131,9 +158,65 @@
         integrity="sha384-mQ93K/oYVQdiQjauT61/8CKWeLdr6+wUczI2t7XYo0+zWjgmEildkKzwErnoEdyc"
         crossorigin="anonymous"></script>
 
+<<<<<<< HEAD
     <script src="/static/js/scriptLogin.js"></script>
     <script src="/static/js/script.js"></script>
 
+=======
+    <script src="../static/js/scriptLogin.js"></script>
+    <script src="../static/js/script.js"></script>
+<<<<<<< HEAD
+    <script>
+        /*
+        function login() {
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+        
+            fetch("http://localhost:8000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    alert("Login exitoso");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }       */
+        function login() {
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+        
+            fetch("http://localhost:8000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    // Redirigir a la página de productos
+                    window.location.href = data.redirect;
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        } 
+    </script>
+    
+=======
+
+>>>>>>> origin/master
+>>>>>>> 1fa703adf2c5159cf9ef7bfc6c7537a02351e6a2
 
 </body>
 
