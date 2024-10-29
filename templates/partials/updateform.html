@@ -1,0 +1,201 @@
+<label for="product-image">Imagen del Producto:</label>
+<input type="file" id="img" name="img" value="{{product["img"]}}" accept="image/*" required>
+<!-- Campos generales -->
+<div id="generalFields" class="hidden">
+    <h3>Características Generales</h3>
+    <label for="productName">Nombre del Producto:</label>
+    <input type="text" id="productName" name="productName" value="{{product["productName"]}}" required>
+
+    <label for="price">Precio:</label>
+    <input type="number" id="price" name="price" min="0" required>
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required>
+</div>
+
+<!-- Campos específicos para MacBook -->
+<div id="macFields" class="hidden">
+    <h2>Características Mac</h2>
+    <label for="screenSizeMac">Tamaño de pantalla:</label>
+    <input type="text" id="screenSizeMac" name="screenSizeMac">
+
+    <label for="capacidadMac">Capacidad:</label>
+    <input type="text" id="capacidadMac" name="capacidadMac">
+
+    <label for="memoriaMac">Memoria:</label>
+    <input type="text" id="memoriaMac" name="memoriaMac">
+
+    <label for="procesadorMac">Procesador:</label>
+    <input type="text" id="procesadorMac" name="procesadorMac">
+
+    <label for="softwareMac">Software:</label>
+    <input type="text" id="softwareMac" name="softwareMac">
+
+    <label for="conexionInalambricaMac">Conexion inalámbrica:</label>
+    <input type="text" id="conexionInalambricaMac" name="conexionInalambricaMac">
+
+    <label for="audioMac">Audio:</label>
+    <input type="text" id="audioMac" name="audioMac">
+
+    <label for="tecladoMac">Teclado y trackpad:</label>
+    <input type="text" id="tecladoMac" name="tecladoMac">
+
+    <label for="dimensiones">Dimensiones:</label>
+    <input type="text" id="dimensiones" name="dimensiones">
+
+    <label for="camaraMac">Cámara:</label>
+    <input type="text" id="camaraMac" name="camaraMac">
+
+    <label for="formatoDeVideoMac">Formato de video:</label>
+    <input type="text" id="formatoMac" name="formatoMac">
+
+    <label for="bateriaMac">Bateria y alimentación:</label>
+    <input type="text" id="bateriaMac" name="bateriaMac">
+
+</div>
+
+
+<!-- Campos específicos para iPhone -->
+<div id="iphoneFields" class="hidden">
+    <h2>Características Iphone</h2>
+    <label for="screenSizeIphone">Tamaño de pantalla:</label>
+    <input type="text" id="screenSizeIphone" name="screenSizeIphone">
+
+    <label for="resolutionIphone">Resolución de pantalla:</label>
+    <input type="text" id="resolutionIphone" name="resolutionIphone">
+
+    <label for="resistenciaIphone">Resistencia a salpicaudras, el agua y el polvo:</label>
+    <input type="text" id="resistenciaIphone" name="resistenciaIphone">
+
+    <label for="procesadorIphone">Procesador:</label>
+    <input type="text" id="procesadorIphone" name="procesadorIphone">
+
+    <label for="camaraIphone">Cámara:</label>
+    <input type="text" id="camaraIphone" name="camaraIphone">
+
+    <label for="dimensiones">Dimensiones:</label>
+    <input type="text" id="dimensiones" name="dimensiones">
+
+    <label for="faceidIphone">Face ID:</label>
+    <input type="text" id="faceidIphone" name="faceidIphone">
+
+    <label for="memoryIphone">Memoria:</label>
+    <input type="text" id="memoryIphone" name="memoryIphone">
+
+    <label for="geolocalizacion">Geolocalización:</label>
+    <input type="text" id="geolocalizacion" name="geolocalizacion">
+
+    <label for="reproduccionIphone">Reproducción de audio y video:</label>
+    <input type="text" id="reproduccionIphone" name="reproduccionIphone">
+
+    <label for="sensoresIphone">Sensores:</label>
+    <input type="text" id="sensoresIphone" name="sensoresIphone">
+
+    <label for="grabacionIphone">Grabación de video:</label>
+    <input type="text" id="grabacionIphone" name="grabacionIphone">
+
+    <label for="siriIphone">Siri:</label>
+    <input type="text" id="siriIphone" name="siriIphone">
+
+    <label for="bateriaIphone">Bateria y alimentación:</label>
+    <input type="text" id="bateriaIphone" name="bateriaIphone">
+</div>
+
+<!-- Campos específicos para ipad -->
+<div id="ipadFields" class="hidden">
+    <h2>Características Ipad</h2>
+    <label for="screenSizeIpad">Tamaño de pantalla:</label>
+    <input type="text" id="screenSizeIpad" name="screenSizeIpad">
+
+    <label for="capacidadIpad">Capacidad:</label>
+    <input type="text" id="capacidadIpad" name="capacidadIpad">
+
+    <label for="memoriaipad">Memoria:</label>
+    <input type="text" id="memoriaipad" name="memoriaipad">
+
+    <label for="procesadorIpad">Procesador:</label>
+    <input type="text" id="procesadorIpad" name="procesadorIpad">
+
+    <label for="camaraIpad">Cámara fotos y procesador de video:</label>
+    <input type="text" id="camaraIpad" name="camaraIpad">
+
+    <label for="softwareIpad">Software:</label>
+    <input type="text" id="softwareIpad" name="softwareIpad">
+
+    <label for="conexioninalambricaIpad">Conexion inalámbrica:</label>
+    <input type="text" id="conexioninalambricaIpad" name="conexioninalambricaIpad">
+
+    <label for="audioIpad">Audio:</label>
+    <input type="text" id="audioIpad" name="audioIpad">
+
+    <label for="geolocalizacionIpad">Geolocalización:</label>
+    <input type="text" id="geolocalizacionIpad" name="geolocalizacionIpad">
+
+    <label for="bateriaIpad">Bateria y alimentación:</label>
+    <input type="text" id="bateriaIpad" name="bateriaIpad">
+
+    <label for="sensoresIpad">Sensores:</label>
+    <input type="text" id="sensoresIpad" name="sensoresIpad">
+
+    <label for="tuchIdIpad">Tuch ID:</label>
+    <input type="text" id="tuchIdIpad" name="tuchIdIpad">
+
+    <label for="siriIpad">Siri:</label>
+    <input type="text" id="siriIpad" name="siriIpad">
+
+</div>
+
+<!-- Campos específicos para AirPods -->
+<div id="airpodsFields" class="hidden">
+    <h2>Características Airpods</h2>
+    <label for="batteryLifeAirpods">Duración de la batería:</label>
+    <input type="text" id="batteryLifeAirpods" name="batteryLifeAirpods">
+
+    <label for="noiseCancellation">Cancelación de ruido:</label>
+    <input type="checkbox" id="noiseCancellation" name="noiseCancellation">
+
+    <label for="sensoresAirpods">Sensores:</label>
+    <input type="text" id="sensoresAirpods" name="sensoresAirpods">
+
+</div>
+
+<!-- Campos específicos para apple Vision Pro -->
+<div id="appleVisionPro" class="hidden">
+    <h2>Características Apple Vision Pro</h2>
+
+    <label for="screenSizeVison">Pantalla:</label>
+    <input type="text" id="screenSizeVison" name="screenSizeVison">
+
+    <label for="batteryVisionPro">Duración de la batería:</label>
+    <input type="text" id="batteryVisionPro" name="batteryVisionPro">
+
+    <label for="sensoresVisionPro">Sensores:</label>
+    <input type="text" id="sensoresVisionPro" name="sensoresVisionPro">
+
+    <label for="dimensiones">Dimensiones:</label>
+    <input type="text" id="dimensiones" name="dimensiones">
+
+    <label for="modosVisionPro">Modos:</label>
+    <input type="text" id="modosVisionPro" name="modosVisionPro">
+
+    <label for="juegos">Cantidad de Juegos:</label>
+    <input type="number" id="juegos" name="juegos">
+
+</div>
+
+<!-- Campos específicos para Wach -->
+<div id="wachFields" class="hidden">
+    <h2>Características Wach</h2>
+    <label for="batteryLifeWach">Duración de la batería:</label>
+    <input type="text" id="batteryLifeWach" name="batteryLifeWach">
+
+    <label for="sensoresWach">Sensores:</label>
+    <input type="text" id="sensoresWach" name="sensoresWach">
+
+    <label for="dimensiones">Dimensiones:</label>
+    <input type="text" id="dimensiones" name="dimensiones">
+    
+    <label for="modos">Modos:</label>
+    <input type="text" id="modos" name="modos">
+
+</div>

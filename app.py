@@ -6,6 +6,8 @@ import mysql.connector
 import pymysql
 import os
 import users
+import addProduct
+import deleteProduct
 
 app = Flask(__name__)
 
@@ -80,180 +82,8 @@ def about_us():
 
 @app.route('/add-product', methods=['POST'])
 def add_product():
-    conn = connect_db()
-    cursor = conn.cursor()
-    
-    if 'img' not in request.files:
-        return jsonify({"error": "No file part"}), 400
-    img_file = request.files['img']
-    if img_file.filename == '':
-        return jsonify({"error": "No selected file"}), 400
-
-    # Guardar la imagen en la carpeta de uploads
-    filename = secure_filename(img_file.filename)
-    img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    img_file.save(img_path)
-
-    # Recibir datos del formulario
-    product_type = request.form['productType']  # Tipo de producto
-    product_name = request.form['productName']  # Nombre del producto
-    price = request.form['price']  # Precio del producto
-    color = request.form['color']  # Color del producto
-
-    #img_path en lugar de img
-    img = img_path
-    product_id = None
-    
-    try:
-        # Insertar datos según el tipo de producto seleccionado
-       if product_type == 'mac':
-          dimensiones = request.form.get('dimensiones')
-          screenSizeMac = request.form.get('screenSizeMac')
-          capacidadMac = request.form.get('capacidadMac')
-          memoriaMac = request.form.get('memoriaMac')
-          procesadorMac = request.form.get('procesadorMac')
-          softwareMac = request.form.get('softwareMac')
-          conexionInalambricaMac = request.form.get('conexionInalambricaMac')
-          audioMac = request.form.get('audioMac')
-          tecladoMac = request.form.get('tecladoMac')
-          camaraMac = request.form.get('camaraMac')
-          formatoMac = request.form.get('formatoMac')
-          bateriaMac = request.form.get('bateriaMac')
-
-          # Insertar en la tabla 'mac'
-          query = """INSERT INTO mac (productName, price, color, img, dimensiones,
-                               screenSizeMac, capacidadMac, memoriaMac, procesadorMac, softwareMac, 
-                               conexionInalambricaMac, audioMac, tecladoMac, camaraMac, formatoMac, bateriaMac) 
-                   VALUES (%s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-          cursor.execute(query, (product_name, price, color, img, dimensiones,
-                               screenSizeMac, capacidadMac, memoriaMac, procesadorMac, softwareMac, 
-                               conexionInalambricaMac, audioMac, tecladoMac, camaraMac, formatoMac, bateriaMac))
-          conn.commit()
-       elif product_type == 'iphone':
-            dimensiones = request.form.get('dimensiones')
-            screenSizeIphone = request.form.get('screenSizeIphone')
-            resolutionIphone = request.form.get('resolutionIphone')
-            resistenciaIphone = request.form.get('resistenciaIphone')
-            procesadorIphone = request.form.get('procesadorIphone')
-            camaraIphone = request.form.get('camaraIphone')
-            faceidIphone = request.form.get('faceidIphone')
-            memoryIphone = request.form.get('memoryIphone')
-            geolocalizacion = request.form.get('geolocalizacion')
-            reproduccionIphone = request.form.get('reproduccionIphone')
-            sensoresIphone = request.form.get('sensoresIphone')
-            grabacionIphone = request.form.get('grabacionIphone')
-            siriIphone = request.form.get('siriIphone')
-            bateriaIphone = request.form.get('bateriaIphone')
-
-           # Insertar en la tabla 'iphone'
-            query = """INSERT INTO iphone (productName, price, color, dimensiones, img,
-                               screenSizeIphone, resolutionIphone, resistenciaIphone, procesadorIphone, 
-                               camaraIphone, faceidIphone, memoryIphone, geolocalizacion, reproduccionIphone, 
-                               sensoresIphone, grabacionIphone, siriIphone, bateriaIphone) 
-                      VALUES (%s,%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-            cursor.execute(query, (product_name, price, color, dimensiones, img,
-                               screenSizeIphone, resolutionIphone, resistenciaIphone, procesadorIphone, 
-                               camaraIphone, faceidIphone, memoryIphone, geolocalizacion, reproduccionIphone, 
-                               sensoresIphone, grabacionIphone, siriIphone, bateriaIphone))
-            conn.commit()
-       elif product_type == 'ipad':
-             screenSizeIpad = request.form.get('screenSizeIpad')
-             capacidadIpad= request.form.get('capacidadIpad')
-             memoriaipad = request.form.get('memoriaipad')
-             procesadorIpad = request.form.get('procesadorIpad')
-             camaraIpad = request.form.get('camaraIpad')
-             softwareIpad= request.form.get('softwareIpad')
-             conexioninalambricaIpad = request.form.get('conexioninalambricaIpad')
-             audioIpad = request.form.get('audioIpad')
-             geolocalizacionIpad = request.form.get('geolocalizacionIpad')
-             bateriaIpad= request.form.get('bateriaIpad')
-             sensoresIpad = request.form.get('sensoresIpad')
-             tuchidIpad = request.form.get('tuchIdIpad')
-             siriIpad = request.form.get('siriIpad')
-
-           # Insertar en la tabla 'ipad'
-             query = """INSERT INTO ipad (productName, price, color, img,
-                               screenSizeIpad, capacidadIpad, memoriaipad, procesadorIpad, camaraIpad, 
-                               softwareIpad, conexioninalambricaIpad, audioIpad, geolocalizacionIpad, 
-                               bateriaIpad, sensoresIpad, tuchidIpad, siriIpad) 
-                      VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-             cursor.execute(query, (product_name, price, color, img,
-                               screenSizeIpad, capacidadIpad, memoriaipad, procesadorIpad, camaraIpad, 
-                               softwareIpad, conexioninalambricaIpad, audioIpad, geolocalizacionIpad, 
-                               bateriaIpad, sensoresIpad, tuchidIpad, siriIpad))
-             conn.commit()
-       elif product_type == 'airpods':
-            batteryLifeAirpods = request.form.get('batteryLifeAirpods')
-            noiseCancellation = request.form.get('noiseCancellation')
-            sensoresAirpods = request.form.get('sensoresAirpods')
-         
-         # Insertar en la tabla 'airpods'
-            query = """INSERT INTO airpods (productName, price, color, img, batteryLifeAirpods, noiseCancellation,
-                               sensoresAirpods) 
-                     VALUES (%s, %s, %s, %s, %s, %s, %s)"""
-            cursor.execute(query, (product_name, price, color, img, batteryLifeAirpods, noiseCancellation,
-                               sensoresAirpods))
-            conn.commit()
-       elif product_type == 'appleVisionPro':
-            screenSizeVison = request.form.get('screenSizeVison')
-            batteryVisionPro = request.form.get('batteryVisionPro')
-            dimensiones = request.form.get('dimensiones')
-            sensoresVisionPro = request.form.get('sensoresVisionPro')
-            modosVisionPro = request.form.get('modosVisionPro')
-            juegos = request.form.get('juegos')
-         # Insertar en la tabla 'appleVisionPro'
-            query = """INSERT INTO appleVisionPro (productName, price, color, dimensiones, img, screenSizeVison, batteryVisionPro ,
-                               sensoresVisionPro, modosVisionPro, juegos)
-                      VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-            cursor.execute(query, (product_name, price, color, dimensiones, img, screenSizeVison, batteryVisionPro ,
-                               sensoresVisionPro, modosVisionPro, juegos))
-            conn.commit()
-       elif product_type == 'wach':
-            dimensiones = request.form.get('dimensiones')
-            batteryLifeWach = request.form.get('batteryLifeWach')
-            sensoresWach = request.form.get('sensoresWach')
-            modos = request.form.get('modos')
-         # Insertar en la tabla 'wach'
-            query = """INSERT INTO applewatch (img, productName, price, color, dimensiones, batteryLifeWach, sensoresWach,
-                                          modos) 
-                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
-            cursor.execute(query, (img, product_name, price, color,dimensiones, batteryLifeWach, sensoresWach,
-                                modos))
-            conn.commit()
-            return jsonify({'status': 'success'}), 200
-    except KeyError as e:
-            return jsonify({'status': 'error', 'message': f'Missing field: {str(e)}'}), 400
-    except Exception as e:
-          return jsonify({'status': 'error', 'message': str(e)}), 500
-    cursor.close()
-    conn.close()
-    flash({
-        "message": "Producto agregado con éxito!",
-        "product": {
-            "id": product_id,
-            "name": product_name,
-            "price": price,
-            "color": color,
-            "img": img,
-            "type": product_type
-        }
-    })
-    
-    return redirect(url_for('admin'))
-    # # Retornar los detalles del producto agregado
-    # message = flash(jsonify({
-    #     "message": "Producto agregado con éxito!",
-    #     "product": {
-    #         "id": product_id,
-    #         "name": product_name,
-    #         "price": price,
-    #         "color": color,
-    #         "img": img,
-    #         "type": product_type
-    #     }
-    # }), 200)
-    # return redirect(url_for('/admin', message = message))
-    
+    flash(addProduct.addProduct(app))
+    return redirect(url_for("admin_page"))
 
 
 #mostrar 
@@ -274,16 +104,17 @@ def admin_page():
 
     cursor.execute("SELECT *, 'airpods' AS product_type FROM airpods")
     airpods_products = cursor.fetchall()
-
+    
+    cursor.execute("SELECT *, 'applewatch' AS product_type FROM applewatch")
+    applewatch_products = cursor.fetchall()
+    
+    cursor.execute("SELECT *, 'applevisionpro' AS product_type FROM applevisionpro")
+    applevisionpro_products = cursor.fetchall()
     # Combinar todos los productos en una sola lista
-    products = mac_products + iphone_products + ipad_products + airpods_products
-    print(products)
-
+    # products = mac_products + iphone_products + ipad_products + airpods_products
     cursor.close()
     conn.close()
-
-    # Enviar la lista combinada a la plantilla
-    return render_template('admin.html', products=products)
+    return render_template('admin.html', mac=mac_products, iphone=iphone_products, ipad=ipad_products, airpods=airpods_products, applewatch=applewatch_products, applevisionpro=applevisionpro_products)
 
 {
     "error": "1146 (42S02): Table 'compuappledb.products' doesn't exist"
@@ -300,16 +131,11 @@ def admin_page():
 #     return render_template("login.html")
     
 #eliminar producto
-@app.route('/delete-product/<int:product_id>', methods=['DELETE'])
+@app.route('/delete/<int:product_id>', methods=['DELETE'])
 def delete_product(product_id):
-    conn = connect_db()
-    cursor = conn.cursor()
-    # Ajusta la tabla según el tipo de producto que corresponda
-    cursor.execute("DELETE FROM mac WHERE id = %s", (product_id,))
-    conn.commit()
-    cursor.close()
-    conn.close()
-    return jsonify({"message": "Producto eliminado con éxito!"}), 200
+    deleteProduct.delete(app,product_id)
+    return jsonify({"Response":"Producto eliminado"})
+        
 
 #editar producto
 
