@@ -121,22 +121,7 @@
                     <p>No se encontraron productos</p>
                 </div>
                 <!-- iPhone -->
-                <!-- 
-                {% for iphone in data %}
-                    <div class="card" data-categoria="iphone" data-subcategoria="{{iphone[1]}}">
-                        <img src="https://http2.mlstatic.com/D_NQ_NP_2X_654080-MLA47781882564_102021-F.webp" alt="iPhone 13" class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ iphone[1] }}</h3>
-                            <p class="price">{{ iphone[2] }}</p>
-                            <p class="card-text">{{ iphone[4]}}, {{ iphone[8]}} </p>
-                            <div class="buttons">
-                                <button class="buy-now">Comprar Ahora</button>
-                                <button class="add-to-cart">Añadir al Carrito</button>
-                            </div>
-                            </div>
-                    </div>
-                {% endfor %}
-                 -->
+
                  <div class="container">
                     {% for iphone in data %}
                         <div class="card" data-categoria="iphone" data-subcategoria="{{ iphone[2] }}">

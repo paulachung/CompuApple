@@ -24,36 +24,35 @@ def connection():
 def connect_db():
     return mysql.connector.connect(**db_config)
 
-def delete(app, product_id):
+def delete(product_id, producttype):
   try:
       conn = connect_db()
       cursor = conn.cursor()
       # return jsonify({"message": "Producto eliminado con éxito!"}), 200
-
-      product_type = request.args.get('productType')
+      #   product_type = request.args.get('productType')
       try:
           # Insertar datos según el tipo de producto seleccionado
-          if product_type == 'mac':
+          if producttype == 'mac':
               cursor.execute("DELETE FROM mac WHERE id = %s", (product_id,))
               conn.commit()
               
-          elif product_type == 'iphone':
+          elif producttype == 'iphone':
               cursor.execute("DELETE FROM iphone WHERE id = %s", (product_id,))
               conn.commit()
                               
-          elif product_type == 'ipad':
+          elif producttype == 'ipad':
               cursor.execute("DELETE FROM ipad WHERE id = %s", (product_id,))
               conn.commit()
               
-          elif product_type == 'airpods':
+          elif producttype == 'airpods':
               cursor.execute("DELETE FROM airpods WHERE id = %s", (product_id,))
               conn.commit()
               
-          elif product_type == 'appleVisionPro':
+          elif producttype == 'appleVisionPro':
               cursor.execute("DELETE FROM applevisionpro WHERE id = %s", (product_id,))
               conn.commit()
               
-          elif product_type == 'wach':
+          elif producttype == 'wach':
               cursor.execute("DELETE FROM applewatch WHERE id = %s", (product_id,))
               conn.commit()
               

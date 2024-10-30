@@ -44,10 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
         airpodsFields.classList.add('hidden');
         appleVisionProFields.classList.add('hidden');
         wachFields.classList.add('hidden');
-
+        alert(productType.value)
         switch (productType.value) {
             case 'mac':
                 generalFields.classList.remove('hidden');
+                generalFields.classList.add('show');
                 macFields.classList.remove('hidden');
                 break;
             case 'iphone':

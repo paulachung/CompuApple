@@ -73,116 +73,32 @@
 
         <div class="container">
             <!-- Tarjetas de productos que se agregan dinámicamente aca -->
-            {% for product in mac %}
-                <div class="card" data-categoria="product" data-subcategoria="{{ product["productName"] }}">
-                    <img src="{{product["img"]}}" alt="{{ product["productName"] }}" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ product["productName"] }}</h3> 
-                        <p class="price">{{ product["price"] }}</p> 
-                        <p class="card-text">{{ product["color"] }}, {{ product["procesadorIphone"] }} </p> 
-
-                        <form action="/update/{{product["id"]}}" method="post">
-                            {% include "partials/updateform.html" %}
-                            <button type="submit">Actualizar</button>
-                        </form>
-                        <a href="/delete/{{product["id"]}}&productType=mac">Eliminar</a>
+            {% for product in products %}
+            <div class="card" data-categoria="product" data-subcategoria="{{ product.productName }}">
+                <img src="{{product.img}}" alt="{{ product.productName }}" class="card-img-top">
+                <div class="card-body">
+                    <h3 class="card-title">{{ product.productName }}</h3> 
+                    <p class="price">{{ product.price }}</p> 
+                    <p class="card-text">{{ product.color }}, {{ product.dimensiones }} </p> 
+                    <div class="buttons">
+                        <button class="buy-now">Comprar Ahora</button>
+                        <button class="add-to-cart">Añadir al Carrito</button>
                     </div>
                 </div>
+                <a href="/update/{{product.id}}/{{product.producttype}}">Actualizar</a>
+
+                <form action="/update/{{product.id}}/{{product.producttype}}" method="post">
+                    <input type="text" name="name" value="{{product.nombre}}">
+                    <button type="submit">Actualizar</button>
+                </form>
+
+                <a href="/delete/{{product.id}}/{{product.producttype}}">Eliminar</a>
+            </div>
             {% endfor %}
-
-            {% for product in iphone %}
-                <div class="card" data-categoria="product" data-subcategoria="{{ product["productName"] }}">
-                    <img src="{{product["img"]}}" alt="{{ product["productName"] }}" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ product["productName"] }}</h3> 
-                        <p class="price">{{ product["price"] }}</p> 
-                        <p class="card-text">{{ product["color"] }}, {{ product["procesadorIphone"] }} </p> 
-
-                        <form action="/update/{{product["id"]}}" method="post">
-                    
-                            {% include "partials/updateform.html" %}
-                            <button type="submit">Actualizar</button>
-                        </form>
-                        <a href="/delete/{{product["id"]}}&productType=iphone">Eliminar</a>
-                    </div>
-                </div>
-            {% endfor %}
-
-            {% for product in ipad %}
-                <div class="card" data-categoria="product" data-subcategoria="{{ product["productName"] }}">
-                    <img src="{{product["img"]}}" alt="{{ product["productName"] }}" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ product["productName"] }}</h3> 
-                        <p class="price">{{ product["price"] }}</p> 
-                        <p class="card-text">{{ product["color"] }}, {{ product["procesadorIphone"] }} </p> 
-
-                        <form action="/update/{{product["id"]}}" method="post">
-                    
-                            {% include "partials/updateform.html" %}
-                            <button type="submit">Actualizar</button>
-                        </form>
-                        <a href="/delete/{{product["id"]}}&productType=ipad">Eliminar</a>
-                    </div>
-                </div>
-            {% endfor %}
-
-            {% for product in airpods %}
-                <div class="card" data-categoria="product" data-subcategoria="{{ product["productName"] }}">
-                    <img src="{{product["img"]}}" alt="{{ product["productName"] }}" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ product["productName"] }}</h3> 
-                        <p class="price">{{ product["price"] }}</p> 
-                        <p class="card-text">{{ product["color"] }}, {{ product["procesadorIphone"] }} </p> 
-
-                        <form action="/update/{{product["id"]}}" method="post">
-                    
-                            {% include "partials/updateform.html" %}
-                            <button type="submit">Actualizar</button>
-                        </form>
-                        <a href="/delete/{{product["id"]}}&productType=airpods">Eliminar</a>
-                    </div>
-                </div>
-            {% endfor %}
-
-            {% for product in applevisionpro %}
-                <div class="card" data-categoria="product" data-subcategoria="{{ product["productName"] }}">
-                    <img src="{{product["img"]}}" alt="{{ product["productName"] }}" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ product["productName"] }}</h3> 
-                        <p class="price">{{ product["price"] }}</p> 
-                        <p class="card-text">{{ product["color"] }}, {{ product["procesadorIphone"] }} </p> 
-
-                        <form action="/update/{{product["id"]}}" method="post">
-                    
-                            {% include "partials/updateform.html" %}
-                            <button type="submit">Actualizar</button>
-                        </form>
-                        <a href="/delete/{{product["id"]}}&productType=applevisionpro">Eliminar</a>
-                    </div>
-                </div>
-            {% endfor %}
-
-            {% for product in applewatch %}
-                <div class="card" data-categoria="product" data-subcategoria="{{ product["productName"] }}">
-                    <img src="{{product["img"]}}" alt="{{ product["productName"] }}" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ product["productName"] }}</h3> 
-                        <p class="price">{{ product["price"] }}</p> 
-                        <p class="card-text">{{ product["color"] }}, {{ product["procesadorIphone"] }} </p> 
-
-                        <form action="/update/{{product["id"]}}" method="post">
-                            <label for="productType">Seleccionar tipo de producto:</label>
-                    
-                            {% include "partials/updateform.html" %}
-                            <button type="submit">Actualizar</button>
-                        </form>
-                        <a href="/delete/{{product["id"]}}&productType=applewatch">Eliminar</a>
-                    </div>
-                </div>
-            {% endfor %}
+            
         </div>
 
-        <button id="delete-selected-btn">Eliminar Seleccionados</button>
+        <button id="delete-selected-btn">Eliminar Seleccionados</button> 
 
         <!-- Modal para agregar/modificar productos -->
         <div id="productModal" class="modal">
@@ -256,7 +172,6 @@
                         <input type="text" id="bateriaMac" name="bateriaMac">
 
                     </div>
-
 
                     <!-- Campos específicos para iPhone -->
                     <div id="iphoneFields" class="hidden">

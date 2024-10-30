@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request, jsonify, render_template, url_for, flash
+from flask import Flask, redirect, request, jsonify, render_template, url_for, flash, session
 from mysql.connector import Error
 from flask_mysqldb import MySQL
 from werkzeug.utils import secure_filename
@@ -8,8 +8,12 @@ import os
 import users
 import addProduct
 import deleteProduct
+import mysql
+import MySQLdb
+import MySQLdb.cursors
 
 app = Flask(__name__)
+app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 # se guardan las imágenes subidas
 UPLOAD_FOLDER = 'static/uploads/'  # Carpeta de las imágenes
@@ -34,7 +38,8 @@ def connection():
     user= 'root',  
     password= '',
     port= 3307,
-    database= "tecnologia_v3"
+    database= "tecnologia_v3",
+    cursorclass=MySQLdb.cursors.DictCursor
   )
   return conn
 # Conectar a la base de datos
@@ -83,62 +88,69 @@ def about_us():
 @app.route('/add-product', methods=['POST'])
 def add_product():
     flash(addProduct.addProduct(app))
-    return redirect(url_for("admin_page"))
+    return redirect(url_for("/admin"))
 
+@app.route('/admin', methods=["POST","GET"])
+def admin():
+    if 'is_admin' in session and session['is_admin']:
+       print("admin")
+       try:
+            conn = connect_db()
+            cursor = conn.cursor(dictionary=True)
 
-#mostrar 
-@app.route('/admin')
-def admin_page():
-    conn = connect_db()
-    cursor = conn.cursor(dictionary=True)
+            # Consultas para cada tabla
+            cursor.execute("SELECT * FROM mac")
+            mac_products = cursor.fetchall()
 
-    # Consultas para cada tabla
-    cursor.execute("SELECT *, 'mac' AS product_type FROM mac")
-    mac_products = cursor.fetchall()
+            cursor.execute("SELECT * FROM iphone")
+            iphone_products = cursor.fetchall()
 
-    cursor.execute("SELECT *, 'iphone' AS product_type FROM iphone")
-    iphone_products = cursor.fetchall()
+            cursor.execute("SELECT * FROM ipad")
+            ipad_products = cursor.fetchall()
 
-    cursor.execute("SELECT *, 'ipad' AS product_type FROM ipad")
-    ipad_products = cursor.fetchall()
-
-    cursor.execute("SELECT *, 'airpods' AS product_type FROM airpods")
-    airpods_products = cursor.fetchall()
-    
-    cursor.execute("SELECT *, 'applewatch' AS product_type FROM applewatch")
-    applewatch_products = cursor.fetchall()
-    
-    cursor.execute("SELECT *, 'applevisionpro' AS product_type FROM applevisionpro")
-    applevisionpro_products = cursor.fetchall()
-    # Combinar todos los productos en una sola lista
-    # products = mac_products + iphone_products + ipad_products + airpods_products
-    cursor.close()
-    conn.close()
-    return render_template('admin.html', mac=mac_products, iphone=iphone_products, ipad=ipad_products, airpods=airpods_products, applewatch=applewatch_products, applevisionpro=applevisionpro_products)
-
-{
-    "error": "1146 (42S02): Table 'compuappledb.products' doesn't exist"
-}
-# @app.route('/login', methods=["GET","POST"])
-# def login():
-#     try:
-#         if request.method == "POST":
+            cursor.execute("SELECT * FROM airpods")
+            airpods_products = cursor.fetchall()
             
-#             return redirect(url_for("admin"))
-#     except Exception as e:
-#         print("Error en /login")
-#         return render_template("login.html")
-#     return render_template("login.html")
+            cursor.execute("SELECT * FROM applewatch")
+            applewatch_products = cursor.fetchall()
+            
+            cursor.execute("SELECT * FROM applevisionpro")
+            applevisionpro_products = cursor.fetchall()
+            # Combinar todos los productos en una sola lista
+            products = mac_products + iphone_products + ipad_products + airpods_products + applevisionpro_products + applewatch_products
+            print(products)
+            cursor.close()
+            conn.close()
+            return render_template('admin.html', products=products)
+       except Exception as e:
+          flash("Error al cargar admin, verifica la conexion a la bd") 
+          print("Error al cargar admin") 
+          return jsonify({"Error":"Error al cargar admin"})
+    else:
+        return redirect('/index')
+# {
+#     "error": "1146 (42S02): Table 'compuappledb.products' doesn't exist"
+# }
     
 #eliminar producto
-@app.route('/delete/<int:product_id>', methods=['DELETE'])
-def delete_product(product_id):
-    deleteProduct.delete(app,product_id)
-    return jsonify({"Response":"Producto eliminado"})
-        
+@app.route('/delete/<int:product_id>/<string:producttype>')
+def delete_product(product_id, producttype):
+    deleteProduct.delete(product_id, producttype)
+    jsonify({"Response":"Producto eliminado"})
+    return redirect(url_for("admin"))
+
+# Ruta para actualizar un registro existente
+@app.route('/update/<int:id>', methods=['POST'])
+def update(id):
+    cursor = connection.cursor()
+    
+    name = request.form['name']
+    # Actualizar el registro en la base de datos
+    cursor.execute('UPDATE tabla SET nombre = %s WHERE id = %s', (name, id))
+    connection.commit()
+    return redirect(url_for('index'))
 
 #editar producto
-
 @app.route('/edit-product/<int:product_id>', methods=['GET', 'POST'])
 def edit_product(product_id):
     conn = connect_db()
@@ -201,5 +213,32 @@ def get_products():
 
     return jsonify({'products': products})
 
+
+@app.route('/mostrar_tabla')
+def mostrar_tabla():
+    try:        
+        print("entro mostrar")
+        conn = connection()
+        cursor = conn.cursor()
+        
+        cursor.execute("SELECT `id`, `img`, `productName`, `price`, `color`, `dimensiones`, `screenSizeIphone`, `resolutionIphone`, `resistenciaIphone`, `procesadorIphone`, `camaraIphone`, `faceidIphone`, `memoryIphone`, `geolocalizacion`, `reproduccionIphone`, `sensoresIphone`, `grabacionIphone`, `siriIphone`, `bateriaIphone` FROM `iphone`")
+        iphones = cursor.fetchall()    
+        print(iphones)
+        cursor.close()
+        conn.close()
+        
+        datos = cursor.fetchall()  # Obtener todos los registros
+        print("en try")
+        # Obtener nombres de las columnas
+        column_names = [desc[0] for desc in cursor.description]
+        cursor.close()
+        conn.close()
+        return render_template('mostrar_tabla.html', datos=datos, column_names=column_names)
+    except Error as e:
+        print(f"Error al conectarse a la base de datos: {e}")
+        return "Error en la conexión a la base de datos"
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
+        return "Ocurrió un error al recuperar los datos"
 if __name__ == '__main__':
     app.run(debug=True) 

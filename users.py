@@ -39,6 +39,7 @@ def init_app(app, db_config):
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
+        print("login")
         if request.method == 'POST':
             email = request.form['email']
             password = request.form['password']
