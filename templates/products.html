@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <!-- header -->
+    <!--
     <header class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index">
@@ -46,6 +46,50 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> <span id="cart-counter" class="cart-counter">0</span> 
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <span id="toggle-btn" class="nav-link dark-mode-toggle"><i class="fa-regular fa-lightbulb"></i></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>-->
+    <header class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index">
+                <img src="/static/img/logonuevo.png" alt="CompuApple" class="logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/aboutUs">Sobre nosotros</a>
+                    </li>
+                    <!-- Mostrar el nombre de usuario si está en sesión -->
+                    {% if session.get('user_id') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> {{ session['nombre'] }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST" style="display:inline;">
+                                <button type="submit" class="nav-link btn btn-link">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Iniciar sesión</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> <span id="cart-counter" class="cart-counter">0</span> 
                         </a>
                     </li>
                     <li class="nav-item">
@@ -120,22 +164,37 @@
                 <div id="no-resultados" class="no-resultados" style="display: none;">
                     <p>No se encontraron productos</p>
                 </div>
-                <!-- iPhone -->
-
-                 <div class="container">
-                    {% for iphone in data %}
-                        <div class="card" data-categoria="iphone" data-subcategoria="{{ iphone[2] }}">
-                            <img src="{{iphone[1]}}" alt="{{ iphone[2] }}" class="card-img-top">
+                
+                <div class="container">
+                    <!-- 
+                    {% for product in products %}
+                        <div class="card" data-categoria="product" data-subcategoria="{{ product[2] }}">
+                            <img src="{{product[1]}}" alt="{{ product[2] }}" class="card-img-top">
                             <div class="card-body">
-                                <h3 class="card-title">{{ iphone[2] }}</h3> 
-                                <p class="price">{{ iphone[2] }}</p> 
-                                <p class="card-text">{{ iphone[5] }}, {{ iphone[9] }} </p> 
+                                <h3 class="card-title">{{ product[2] }}</h3> 
+                                <p class="price">{{ product[2] }}</p> 
+                                <p class="card-text">{{ product[5] }}, {{ product[9] }} </p> 
                                 <div class="buttons">
                                     <button class="buy-now">Comprar Ahora</button>
                                     <button class="add-to-cart">Añadir al Carrito</button>
                                 </div>
                             </div>
                         </div>
+                    {% endfor %} -->
+
+                    {% for product in products %}
+                    <div class="card" data-categoria="product" data-subcategoria="{{ product.productName }}">
+                        <img src="{{product.img}}" alt="{{ product.productName }}" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ product.productName }}</h3> 
+                            <p class="price">{{ product.price }}</p> 
+                            <p class="card-text">{{ product.color }}, {{ product.dimensiones }} </p> 
+                            <div class="buttons">
+                                <button class="buy-now">Comprar Ahora</button>
+                                <button class="add-to-cart">Añadir al Carrito</button>
+                            </div>
+                        </div>
+                    </div>
                     {% endfor %}
                 </div>
             </section>

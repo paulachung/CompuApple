@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../static/css/styleAdmin.css">
     <link rel="stylesheet" href="../static/css/header.css">
     <link rel="stylesheet" href="../static/css/mediaQueries.css">
-    <link rel="stylesheet" href="../static/css/card.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -23,10 +22,9 @@
 </head>
 
 <body>
-    <!--
     <header class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/index">
+            <a class="navbar-brand" href="index.html">
                 <img src="../static/img/logonuevo.png" alt="CompuApple" class="logo">
             </a>
 
@@ -38,13 +36,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/products">Productos</a>
+                        <a class="nav-link" href="products.html">Productos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="aboutUs.html">Sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="login.html">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> <span
@@ -59,157 +57,20 @@
             </div>
         </div>
     </header>
--->
-<header class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/index">
-            <img src="/static/img/logonuevo.png" alt="CompuApple" class="logo">
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/products">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/aboutUs">Sobre nosotros</a>
-                </li>
-                <!-- Mostrar el nombre de usuario si está en sesión -->
-                {% if session.get('user_id') %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> {{ session['nombre'] }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <form action="/logout" method="POST" style="display:inline;">
-                            <button type="submit" class="nav-link btn btn-link">Cerrar sesión</button>
-                        </form>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Iniciar sesión</a>
-                    </li>
-                {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> <span id="cart-counter" class="cart-counter">0</span> 
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <span id="toggle-btn" class="nav-link dark-mode-toggle"><i class="fa-regular fa-lightbulb"></i></span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</header>
-
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-          {% for message in messages %}
-            <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
 
     <div id="admin-container">
         <button id="add-product-btn">Agregar Producto</button>
-
-        <div class="container">
+        <div id="productList" class="productList">
             <!-- Tarjetas de productos que se agregan dinámicamente aca -->
-            {% for product in products %}
-            <div class="card" data-categoria="product" data-subcategoria="{{ product.productName }}">
-                <img src="{{product.img}}" alt="{{ product.productName }}" class="card-img-top">
-                <div class="card-body">
-                    <h3 class="card-title">{{ product.productName }}</h3> 
-                    <p class="price">{{ product.price }}</p> 
-                    <p class="card-text">{{ product.color }}, {{ product.dimensiones }} </p> 
-                    <div class="buttons">
-                        <button class="buy-now">Comprar Ahora</button>
-                        <button class="add-to-cart">Añadir al Carrito</button>
-                    </div>
-                </div>
-                <a href="/update/{{product.id}}/{{product.producttype}}">Actualizar</a>
-<!--
-    <form action="/update/{{product.id}}/{{product.producttype}}" method="post">
-        <div id="generalFields" >
-            <h3>Características Generales</h3>
-            <label for="productName">Nombre del Producto:</label>
-            <input type="text" id="productName" name="productName" value="{{product.productName}}" required>
-        
-            <label for="price">Precio:</label>
-            <input type="number" id="price" name="price" min="0" value="{{product.price}}" required>
-        
-            <label for="color">Color:</label>
-            <input type="text" id="color" name="color" value="{{product.color}}" required>
         </div>
-        {% if product.producttype == 'iphone' %}
-        <div id="iphoneFields" >
-            <h2>Características Iphone</h2>
-            <label for="screenSizeIphone">Tamaño de pantalla:</label>
-            <input type="text" id="screenSizeIphone" value="{{product.screenSizeIphone}}" name="screenSizeIphone">
-
-            <label for="resolutionIphone">Resolución de pantalla:</label>
-            <input type="text" id="resolutionIphone" value="{{product.resolutionIphone}}" name="resolutionIphone">
-
-            <label for="resistenciaIphone">Resistencia a salpicaudras, el agua y el polvo:</label>
-            <input type="text" id="resistenciaIphone" value="{{product.resistenciaIphone}}" name="resistenciaIphone">
-
-            <label for="procesadorIphone">Procesador:</label>
-            <input type="text" id="procesadorIphone" value="{{product.procesadorIphone}}" name="procesadorIphone">
-
-            <label for="camaraIphone">Cámara:</label>
-            <input type="text" id="camaraIphone" value="{{product.camaraIphone}}" name="camaraIphone">
-
-            <label for="dimensiones">Dimensiones:</label>
-            <input type="text" id="dimensiones" value="{{product.dimensiones}}" name="dimensiones">
-
-            <label for="faceidIphone">Face ID:</label>
-            <input type="text" id="faceidIphone" value="{{product.faceidIphone}}" name="faceidIphone">
-
-            <label for="memoryIphone">Memoria:</label>
-            <input type="text" id="memoryIphone" value="{{product.memoryIphone}}" name="memoryIphone">
-
-            <label for="geolocalizacion">Geolocalización:</label>
-            <input type="text" id="geolocalizacion" value="{{product.geolocalizacion}}" name="geolocalizacion">
-
-            <label for="reproduccionIphone">Reproducción de audio y video:</label>
-            <input type="text" id="reproduccionIphone" value="{{product.reproduccionIphone}}" name="reproduccionIphone">
-
-            <label for="sensoresIphone">Sensores:</label>
-            <input type="text" id="sensoresIphone" value="{{product.sensoresIphone}}" name="sensoresIphone">
-
-            <label for="grabacionIphone">Grabación de video:</label>
-            <input type="text" id="grabacionIphone" value="{{product.grabacionIphone}}" name="grabacionIphone">
-
-            <label for="siriIphone">Siri:</label>
-            <input type="text" id="siriIphone" value="{{product.siriIphone}}" name="siriIphone">
-
-            <label for="bateriaIphone">Bateria y alimentación:</label>
-            <input type="text" id="bateriaIphone" value="{{product.bateriaIphone}}" name="bateriaIphone">
-        </div>
-        {% endif %}
-
-        <button type="submit">Actualizar</button>
-    </form>
--->
-                <a href="/delete/{{product.id}}/{{product.producttype}}">Eliminar</a>
-            </div>
-            {% endfor %}
-            
-        </div>
-
-        <button id="delete-selected-btn">Eliminar Seleccionados</button> 
+        <button id="delete-selected-btn">Eliminar Seleccionados</button>
 
         <!-- Modal para agregar/modificar productos -->
         <div id="productModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2 id="form-title">Agregar Producto</h2>
-                <form id="productForm" action="/add-product" method="post" enctype="multipart/form-data">
+                <form id="productForm" action="/admin" method="post" enctype="multipart/form-data">
                     <label for="productType">Seleccionar tipo de producto:</label>
                     <select id="productType" name="productType">
                         <option value="">Seleccione un producto</option>
@@ -217,8 +78,9 @@
                         <option value="iphone">Iphone</option>
                         <option value="ipad">Ipad</option>
                         <option value="airpods">AirPods</option>
+                        <option value="accesorios">Accesorios</option>
                         <option value="appleVisionPro">Apple Vision Pro </option>
-                        <option value="applewatch">AppleWatch</option>
+                        <option value="wach">Wach</option>
                     </select>
                     <label for="product-image">Imagen del Producto:</label>
                     <input type="file" id="img" name="img" accept="image/*" required>
@@ -263,9 +125,6 @@
                         <label for="tecladoMac">Teclado y trackpad:</label>
                         <input type="text" id="tecladoMac" name="tecladoMac">
 
-                        <label for="dimensiones">Dimensiones:</label>
-                        <input type="text" id="dimensiones" name="dimensiones">
-
                         <label for="camaraMac">Cámara:</label>
                         <input type="text" id="camaraMac" name="camaraMac">
 
@@ -276,6 +135,7 @@
                         <input type="text" id="bateriaMac" name="bateriaMac">
 
                     </div>
+
 
                     <!-- Campos específicos para iPhone -->
                     <div id="iphoneFields" class="hidden">
@@ -294,9 +154,6 @@
 
                         <label for="camaraIphone">Cámara:</label>
                         <input type="text" id="camaraIphone" name="camaraIphone">
-
-                        <label for="dimensiones">Dimensiones:</label>
-                        <input type="text" id="dimensiones" name="dimensiones">
 
                         <label for="faceidIphone">Face ID:</label>
                         <input type="text" id="faceidIphone" name="faceidIphone">
@@ -394,29 +251,23 @@
                         <label for="sensoresVisionPro">Sensores:</label>
                         <input type="text" id="sensoresVisionPro" name="sensoresVisionPro">
 
-                        <label for="dimensiones">Dimensiones:</label>
-                        <input type="text" id="dimensiones" name="dimensiones">
-
                         <label for="modosVisionPro">Modos:</label>
                         <input type="text" id="modosVisionPro" name="modosVisionPro">
 
                         <label for="juegos">Cantidad de Juegos:</label>
-                        <input type="number" id="juegos" name="juegos">
+                        <input type="number" id="juegos" name="jugos">
 
                     </div>
 
                     <!-- Campos específicos para Wach -->
                     <div id="wachFields" class="hidden">
-                        <h2>Características Watch</h2>
+                        <h2>Características Wach</h2>
                         <label for="batteryLifeWach">Duración de la batería:</label>
                         <input type="text" id="batteryLifeWach" name="batteryLifeWach">
 
                         <label for="sensoresWach">Sensores:</label>
                         <input type="text" id="sensoresWach" name="sensoresWach">
 
-                        <label for="dimensiones">Dimensiones:</label>
-                        <input type="text" id="dimensiones" name="dimensiones">
-                        
                         <label for="modos">Modos:</label>
                         <input type="text" id="modos" name="modos">
 
@@ -448,13 +299,8 @@
 
     <script src="../static/js/script.js"></script>
     <script src="../static/js/prueba.js"></script>
-    <script>
-        document.getElementById('productForm').addEventListener('submit', function() {
-            setTimeout(function() {
-                window.location.reload();
-            }, 2000); // Recargar la página 1 segundo después de agregar el producto
-        });
-    </script>
+
+
 </body>
 
 </html>

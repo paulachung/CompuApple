@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request, jsonify, render_template, url_for, flash
+from flask import jsonify, flash
 import mysql.connector
 import pymysql
 
@@ -52,7 +52,7 @@ def delete(product_id, producttype):
               cursor.execute("DELETE FROM applevisionpro WHERE id = %s", (product_id,))
               conn.commit()
               
-          elif producttype == 'wach':
+          elif producttype == 'applewatch':
               cursor.execute("DELETE FROM applewatch WHERE id = %s", (product_id,))
               conn.commit()
               

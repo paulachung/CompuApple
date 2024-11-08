@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
         airpodsFields.classList.add('hidden');
         appleVisionProFields.classList.add('hidden');
         wachFields.classList.add('hidden');
-        alert(productType.value)
         switch (productType.value) {
             case 'mac':
                 generalFields.classList.remove('hidden');
@@ -67,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 generalFields.classList.remove('hidden');
                 appleVisionProFields.classList.remove('hidden');
                 break;
-            case 'wach':
+            case 'applewatch':
                 generalFields.classList.remove('hidden');
                 wachFields.classList.remove('hidden');
                 break;

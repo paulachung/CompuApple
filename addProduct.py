@@ -25,6 +25,7 @@ def connect_db():
     return mysql.connector.connect(**db_config)
   
 def addProduct(app):
+  print("en add")
   conn = connect_db()
   cursor = conn.cursor()
   
@@ -153,13 +154,13 @@ def addProduct(app):
           cursor.execute(query, (product_name, price, color, dimensiones, img, screenSizeVison, batteryVisionPro ,
                               sensoresVisionPro, modosVisionPro, juegos))
           conn.commit()
-      elif product_type == 'wach':
+      elif product_type == 'applewatch':
           dimensiones = request.form.get('dimensiones')
           batteryLifeWach = request.form.get('batteryLifeWach')
           sensoresWach = request.form.get('sensoresWach')
           modos = request.form.get('modos')
         # Insertar en la tabla 'wach'
-          query = """INSERT INTO wach (img, productName, price, color, dimensiones, batteryLifeWach, sensoresWach,
+          query = """INSERT INTO applewatch (img, productName, price, color, dimensiones, batteryLifeWach, sensoresWach,
                                         modos) 
                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
           cursor.execute(query, (img, product_name, price, color,dimensiones, batteryLifeWach, sensoresWach,
@@ -172,7 +173,6 @@ def addProduct(app):
         return jsonify({'status': 'error', 'message': str(e)}), 500
   cursor.close()
   conn.close()
+  print("se agrego")
   # Retornar los detalles del producto agregado
-  message = flash( "Producto agregado con éxito!")
-
-  return message
+  flash( "Producto agregado con éxito!")

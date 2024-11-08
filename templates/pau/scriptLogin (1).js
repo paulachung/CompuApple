@@ -146,6 +146,62 @@ document.getElementById("register-password").addEventListener("blur", function()
     }
 });
 
+// Mostrar el mensaje de error en la página de inicio de sesión
+window.onload = function() {
+    const errorMessage = localStorage.getItem("registrationError");
+    if (errorMessage) {
+        alert(errorMessage); // Mostrar el mensaje de error
+        localStorage.removeItem("registrationError"); // Limpiar el mensaje después de mostrarlo
+    }
+};
+
+// Validación de cada campo del formulario
+function validateField(inputElement, pattern, errorMessage) {
+    const errorElement = document.getElementById(`${inputElement.id}-error`);
+    const value = inputElement.value.trim();
+
+    if (!pattern.test(value) || value === "") {
+        errorElement.textContent = errorMessage;
+        errorElement.style.display = "block";
+        inputElement.classList.add("input-error");
+        return false;
+    } else {
+        errorElement.textContent = "";
+        errorElement.style.display = "none";
+        inputElement.classList.remove("input-error");
+        return true;
+    }
+}
+
+// Función para validar el formulario completo
+function validateForm() {
+    const registerButton = document.getElementById('register-button');
+
+    const nombre = document.getElementById('register-name');
+    const email = document.getElementById('register-email');
+    const direccion = document.getElementById('register-direccion');
+    const telefono = document.getElementById('register-telefono');
+    const password = document.getElementById('register-password');
+
+    // Validación de cada campo
+    const isNombreValid = validateField(nombre, /^[a-zA-ZÀ-ÿ]+( [a-zA-ZÀ-ÿ]+)*$/, "Ingrese un nombre válido (solo letras, entre 3 y 15 caracteres)");
+    const isEmailValid = validateField(email, /^[a-zA-Z0-9_]+@(gmail|hotmail)\.com$/, "Ingrese un correo válido (@hotmail.com o @gmail.com)");
+    const isDireccionValid = validateField(direccion, /^[a-zA-Z0-9\s,.-]{5,}$/, "Ingrese una dirección válida (solo letras, números, comas y puntos)");
+    const isTelefonoValid = validateField(telefono, /^[0-9]{6,15}$/, "Ingrese un número de teléfono válido (solo números, entre 6 y 15 dígitos)");
+    const isPasswordValid = validateField(password, /^(?=.*[a-z])(?=.*[A-Z]{1})(?=.*\d{1})(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>?`~]{1})[^\s]{6,16}$/, "La contraseña debe contener una mayúscula, un número, un carácter especial, al menos una minúscula, y tener entre 6 y 16 caracteres");
+
+    // Deshabilitar el botón si hay algún campo inválido
+    const isValid = isNombreValid && isEmailValid && isDireccionValid && isTelefonoValid && isPasswordValid;
+    registerButton.disabled = !isValid;
+}
+
+// Agregar evento de input a cada campo
+document.querySelectorAll('#register-form input').forEach(input => {
+    input.addEventListener('input', validateForm);
+});
+
+
+
 // Botón volver arriba
 var btnSubir = document.getElementById("btn-subir-arriba");
 btnSubir.onclick = function () {

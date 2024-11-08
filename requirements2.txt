@@ -12,6 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE mac (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    producttype varchar(20) NOT NULL DEFAULT 'mac',
     img VARCHAR(200),
     productName VARCHAR(255) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -33,6 +34,7 @@ CREATE TABLE mac (
 
 CREATE TABLE iphone (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    producttype varchar(20) NOT NULL DEFAULT 'iphone',
     img VARCHAR(200),
     productName VARCHAR(255) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -56,6 +58,7 @@ CREATE TABLE iphone (
 
 CREATE TABLE ipad (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    producttype varchar(20) NOT NULL DEFAULT 'ipad',
     img VARCHAR(200),
     productName VARCHAR(255) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -79,6 +82,7 @@ CREATE TABLE ipad (
 
 CREATE TABLE airpods (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    producttype varchar(20) NOT NULL DEFAULT 'airpods',
     img VARCHAR(200),
     productName VARCHAR(255) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -92,6 +96,7 @@ CREATE TABLE airpods (
 
 CREATE TABLE wach (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    producttype varchar(20) NOT NULL DEFAULT 'applewatch',
     img VARCHAR(200),
     productName VARCHAR(255) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -105,6 +110,7 @@ CREATE TABLE wach (
 
 CREATE TABLE appleVisionpro (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    producttype varchar(20) NOT NULL DEFAULT 'applevisionpro',
     img VARCHAR(200),
     productName VARCHAR(255) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
