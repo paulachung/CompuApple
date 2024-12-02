@@ -4,53 +4,67 @@ import pymysql, mysql
 import os
 # Configuración de la conexión a la base de datos
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '',
-    'database': 'tecnologia_v3',
-    'port': 3307
+    'host': '193.203.175.121',
+    'user': 'u314848509_compuapple',
+    'password': 'p,^.PKG2Jd!p6-F',
+    'database': 'u314848509_compuapple',
 }
 def connection():
   # Configuración de la conexión a la base de datos
   conn = pymysql.connect(
-    host= 'localhost',
-    user= 'root',  
-    password= '',
-    port= 3307,
-    database= "tecnologia_v3"
+      host= '193.203.175.121',
+    user= 'u314848509_compuapple',  
+    password= 'p,^.PKG2Jd!p6-F',
+    # port= 3307,
+    database= "u314848509_compuapple"
   )
   return conn
 # Conectar a la base de datos
 def connect_db():
     return mysql.connector.connect(**db_config)
   
+from flask import Flask, request, jsonify, flash
+import os
+from werkzeug.utils import secure_filename
+
+ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 def addProduct(app):
-  print("en add")
-  conn = connect_db()
-  cursor = conn.cursor()
-  
-  if 'img' not in request.files:
-      return jsonify({"error": "No file part"}), 400
-  img_file = request.files['img']
-  if img_file.filename == '':
-      return jsonify({"error": "No selected file"}), 400
+    print("en add")
+    conn = connect_db()
+    cursor = conn.cursor()
 
-  # Guardar la imagen en la carpeta de uploads
-  filename = secure_filename(img_file.filename)
-  img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-  img_file.save(img_path)
+    if 'img' not in request.files:
+        return jsonify({"error": "No file part"}), 400
+    
+    img_file = request.files['img']
+    
+    if img_file.filename == '':
+        return jsonify({"error": "No selected file"}), 400
+    
+    # Verificar si el archivo tiene una extensión permitida
+    if not allowed_file(img_file.filename):
+        return jsonify({"error": "Invalid file type"}), 400
 
-  # Recibir datos del formulario
-  product_type = request.form['productType']  # Tipo de producto
-  product_name = request.form['productName']  # Nombre del producto
-  price = request.form['price']  # Precio del producto
-  color = request.form['color']  # Color del producto
+    # Guardar la imagen en la carpeta de uploads
+    filename = secure_filename(img_file.filename)
+    img_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    img_file.save(img_path)
 
-  #img_path en lugar de img
-  img = img_path
-  product_id = None
-  
-  try:
+    # Recibir datos del formulario
+    product_type = request.form['productType']  # Tipo de producto
+    product_name = request.form['productName']  # Nombre del producto
+    price = request.form['price']  # Precio del producto
+    color = request.form['color']  # Color del producto
+
+    # img_path en lugar de img
+    img = img_path
+    product_id = None
+
+    try:
       # Insertar datos según el tipo de producto seleccionado
       if product_type == 'mac':
         dimensiones = request.form.get('dimensiones')
@@ -140,7 +154,7 @@ def addProduct(app):
           cursor.execute(query, (product_name, price, color, img, batteryLifeAirpods, noiseCancellation,
                               sensoresAirpods))
           conn.commit()
-      elif product_type == 'appleVisionPro':
+      elif product_type == 'applevisionpro':
           screenSizeVison = request.form.get('screenSizeVison')
           batteryVisionPro = request.form.get('batteryVisionPro')
           dimensiones = request.form.get('dimensiones')
@@ -148,7 +162,7 @@ def addProduct(app):
           modosVisionPro = request.form.get('modosVisionPro')
           juegos = request.form.get('juegos')
         # Insertar en la tabla 'appleVisionPro'
-          query = """INSERT INTO appleVisionPro (productName, price, color, dimensiones, img, screenSizeVison, batteryVisionPro ,
+          query = """INSERT INTO applevisionpro (productName, price, color, dimensiones, img, screenSizeVison, batteryVisionPro ,
                               sensoresVisionPro, modosVisionPro, juegos)
                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
           cursor.execute(query, (product_name, price, color, dimensiones, img, screenSizeVison, batteryVisionPro ,
@@ -167,12 +181,19 @@ def addProduct(app):
                               modos))
           conn.commit()
           return jsonify({'status': 'success'}), 200
-  except KeyError as e:
-          return jsonify({'status': 'error', 'message': f'Missing field: {str(e)}'}), 400
-  except Exception as e:
+    except KeyError as e:
+        return jsonify({'status': 'error', 'message': f'Missing field: {str(e)}'}), 400
+    except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
-  cursor.close()
-  conn.close()
-  print("se agrego")
-  # Retornar los detalles del producto agregado
-  flash( "Producto agregado con éxito!")
+    finally:
+        cursor.close()
+        conn.close()
+
+    print("se agrego")
+    flash("Producto agregado con éxito!")
+
+  
+  
+  
+  
+

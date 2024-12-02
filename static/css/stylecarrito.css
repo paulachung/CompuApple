@@ -1,0 +1,93 @@
+/* Estilos generales para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-top: 60px;
+    transition: background-color 0.3s;
+}
+
+/* Contenido del modal en modo original */
+.modal-content {
+    background-color: #fefefe;
+    color: #333;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Botón de cierre */
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #333;
+    cursor: pointer;
+}
+
+/* Botones de acción */
+#checkoutButton, #emptyCartButton {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+#checkoutButton:hover, #emptyCartButton:hover {
+    background-color: #638ea8;
+}
+
+/* Modo oscuro */
+body.dark-mode .modal-content {
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+body.dark-mode #checkoutButton,
+body.dark-mode #emptyCartButton {
+    background-color: #638ea8;
+    color: white;
+}
+
+body.dark-mode #checkoutButton:hover,
+body.dark-mode #emptyCartButton:hover {
+    background-color: #444;
+}
+
+/* Alterna entre el modo claro y oscuro */
+body:not(.dark-mode) .modal-content {
+    background-color: #fefefe;
+    color: #333;
+}
+
+body:not(.dark-mode) #checkoutButton,
+body:not(.dark-mode) #emptyCartButton {
+    background-color: black;
+    color: white;
+}
+
+body:not(.dark-mode) #checkoutButton:hover,
+body:not(.dark-mode) #emptyCartButton:hover {
+    background-color: #638ea8;
+}

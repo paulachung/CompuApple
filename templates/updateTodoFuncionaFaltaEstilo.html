@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompuApple - Admin</title>
+    <link rel="stylesheet" href="../static/css/styleAdmin.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/mediaQueries.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="../static/img/logonuevo.png" alt="CompuApple" class="logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUs.html">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> <span
+                                id="cart-counter" class="cart-counter">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <span id="toggle-btn" class="nav-link dark-mode-toggle"><i
+                                class="fa-regular fa-lightbulb"></i></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+        <form action="/update_product/{{product.id}}/{{product.producttype}}" method="post">
+            <input type="hidden" name="producttype" value="{{product.producttype}}">
+            <div id="generalFields" >
+                <h3>Características Generales</h3>
+                <label for="productName">Nombre del Producto:</label>
+                <input type="text" id="productName" name="productName" value="{{product.productName}}" required>
+            
+                <label for="price">Precio:</label>
+                <input type="number" id="price" name="price" min="0" value="{{product.price}}" required>
+            
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color" value="{{product.color}}" required>
+            </div>
+            {% if product.producttype == 'iphone' %}
+            <div id="iphoneFields" >
+                <h2>Características Iphone</h2>
+                <label for="screenSizeIphone">Tamaño de pantalla:</label>
+                <input type="text" id="screenSizeIphone" value="{{product.screenSizeIphone}}" name="screenSizeIphone">
+
+                <label for="resolutionIphone">Resolución de pantalla:</label>
+                <input type="text" id="resolutionIphone" value="{{product.resolutionIphone}}" name="resolutionIphone">
+
+                <label for="resistenciaIphone">Resistencia a salpicaduras, el agua y el polvo:</label>
+                <input type="text" id="resistenciaIphone" value="{{product.resistenciaIphone}}" name="resistenciaIphone">
+
+                <label for="procesadorIphone">Procesador:</label>
+                <input type="text" id="procesadorIphone" value="{{product.procesadorIphone}}" name="procesadorIphone">
+
+                <label for="camaraIphone">Cámara:</label>
+                <input type="text" id="camaraIphone" value="{{product.camaraIphone}}" name="camaraIphone">
+
+                <label for="dimensiones">Dimensiones:</label>
+                <input type="text" id="dimensiones" value="{{product.dimensiones}}" name="dimensiones">
+
+                <label for="faceidIphone">Face ID:</label>
+                <input type="text" id="faceidIphone" value="{{product.faceidIphone}}" name="faceidIphone">
+
+                <label for="memoryIphone">Memoria:</label>
+                <input type="text" id="memoryIphone" value="{{product.memoryIphone}}" name="memoryIphone">
+
+                <label for="geolocalizacion">Geolocalización:</label>
+                <input type="text" id="geolocalizacion" value="{{product.geolocalizacion}}" name="geolocalizacion">
+
+                <label for="reproduccionIphone">Reproducción de audio y video:</label>
+                <input type="text" id="reproduccionIphone" value="{{product.reproduccionIphone}}" name="reproduccionIphone">
+
+                <label for="sensoresIphone">Sensores:</label>
+                <input type="text" id="sensoresIphone" value="{{product.sensoresIphone}}" name="sensoresIphone">
+
+                <label for="grabacionIphone">Grabación de video:</label>
+                <input type="text" id="grabacionIphone" value="{{product.grabacionIphone}}" name="grabacionIphone">
+
+                <label for="siriIphone">Siri:</label>
+                <input type="text" id="siriIphone" value="{{product.siriIphone}}" name="siriIphone">
+
+                <label for="bateriaIphone">Bateria y alimentación:</label>
+                <input type="text" id="bateriaIphone" value="{{product.bateriaIphone}}" name="bateriaIphone">
+            </div>
+            {% elif product.producttype == 'mac' %}
+            <div id="macFields" class="hidden">
+                <h2>Características Mac</h2>
+                <label for="screenSizeMac">Tamaño de pantalla:</label>
+                <input type="text" id="screenSizeMac" value="{{product.screenSizeMac}}" name="screenSizeMac">
+
+                <label for="capacidadMac">Capacidad:</label>
+                <input type="text" id="capacidadMac" value="{{product.capacidadMac}}" name="capacidadMac">
+
+                <label for="memoriaMac">Memoria:</label>
+                <input type="text" id="memoriaMac" value="{{product.memoriaMac}}" name="memoriaMac">
+
+                <label for="procesadorMac">Procesador:</label>
+                <input type="text" id="procesadorMac" value="{{product.procesadorMac}}" name="procesadorMac">
+
+                <label for="softwareMac">Software:</label>
+                <input type="text" id="softwareMac" value="{{product.softwareMac}}" name="softwareMac">
+
+                <label for="conexionInalambricaMac">Conexion inalámbrica:</label>
+                <input type="text" id="conexionInalambricaMac" value="{{product.conexionInalambricaMac}}" name="conexionInalambricaMac">
+
+                <label for="audioMac">Audio:</label>
+                <input type="text" id="audioMac" value="{{product.audioMac}}" name="audioMac">
+
+                <label for="tecladoMac">Teclado y trackpad:</label>
+                <input type="text" id="tecladoMac" value="{{product.tecladoMac}}" name="tecladoMac">
+
+                <label for="dimensiones">Dimensiones:</label>
+                <input type="text" id="dimensiones" value="{{product.dimensiones}}" name="dimensiones">
+
+                <label for="camaraMac">Cámara:</label>
+                <input type="text" id="camaraMac" value="{{product.camaraMac}}" name="camaraMac">
+
+                <label for="formatoDeVideoMac">Formato de video:</label>
+                <input type="text" id="formatoMac" value="{{product.formatoMac}}" name="formatoMac">
+
+                <label for="bateriaMac">Bateria y alimentación:</label>
+                <input type="text" id="bateriaMac" value="{{product.bateriaMac}}" name="bateriaMac">
+            </div>
+            {% elif product.producttype == 'airpods' %}
+            <div id="airpodsFields" class="hidden">
+                <h2>Características Airpods</h2>
+                <label for="batteryLifeAirpods">Duración de la batería:</label>
+                <input type="text" id="batteryLifeAirpods" name="batteryLifeAirpods" value="{{product.batteryLifeAirpods}}">
+
+                <label for="noiseCancellation">Cancelación de ruido:</label>
+                <input type="checkbox" id="noiseCancellation" name="noiseCancellation" value="{{product.noiseCancellation}}">
+
+                <label for="sensoresAirpods">Sensores:</label>
+                <input type="text" id="sensoresAirpods" name="sensoresAirpods" value="{{product.sensoresAirpods}}">
+            </div>
+            {% elif product.producttype == 'applewatch' %}
+            <div id="wachFields" class="hidden">
+                <h2>Características Watch</h2>
+                <label for="batteryLifeWach">Duración de la batería:</label>
+                <input type="text" id="batteryLifeWach" name="batteryLifeWach" value="{{product.batteryLifeWach}}">
+
+                <label for="sensoresWach">Sensores:</label>
+                <input type="text" id="sensoresWach" name="sensoresWach" value="{{product.sensoresWach}}">
+
+                <label for="dimensiones">Dimensiones:</label>
+                <input type="text" id="dimensiones" name="dimensiones" value="{{product.dimensiones}}">
+                
+                <label for="modos">Modos:</label>
+                <input type="text" id="modos" name="modos" value="{{product.modos}}">
+
+            </div>
+            {% elif product.producttype == 'ipad' %}
+            <div id="ipadFields" class="hidden">
+                <h2>Características Ipad</h2>
+                <label for="screenSizeIpad">Tamaño de pantalla:</label>
+                <input type="text" id="screenSizeIpad" name="screenSizeIpad" value="{{product.screenSizeIpad}}">
+
+                <label for="capacidadIpad">Capacidad:</label>
+                <input type="text" id="capacidadIpad" name="capacidadIpad" value="{{product.capacidadIpad}}">
+
+                <label for="memoriaipad">Memoria:</label>
+                <input type="text" id="memoriaipad" name="memoriaipad" value="{{product.memoriaipad}}">
+
+                <label for="procesadorIpad">Procesador:</label>
+                <input type="text" id="procesadorIpad" name="procesadorIpad" value="{{product.procesadorIpad}}">
+
+                <label for="camaraIpad">Cámara fotos y procesador de video:</label>
+                <input type="text" id="camaraIpad" name="camaraIpad" value="{{product.camaraIpad}}">
+
+                <label for="softwareIpad">Software:</label>
+                <input type="text" id="softwareIpad" name="softwareIpad" value="{{product.softwareIpad}}">
+
+                <label for="conexioninalambricaIpad">Conexion inalámbrica:</label>
+                <input type="text" id="conexioninalambricaIpad" name="conexioninalambricaIpad" value="{{product.conexioninalambricaIpad}}">
+
+                <label for="audioIpad">Audio:</label>
+                <input type="text" id="audioIpad" name="audioIpad" value="{{product.audioIpad}}">
+
+                <label for="geolocalizacionIpad">Geolocalización:</label>
+                <input type="text" id="geolocalizacionIpad" name="geolocalizacionIpad" value="{{product.geolocalizacionIpad}}">
+
+                <label for="bateriaIpad">Bateria y alimentación:</label>
+                <input type="text" id="bateriaIpad" name="bateriaIpad" value="{{product.bateriaIpad}}">
+
+                <label for="sensoresIpad">Sensores:</label>
+                <input type="text" id="sensoresIpad" name="sensoresIpad" value="{{product.sensoresIpad}}">
+
+                <label for="tuchIdIpad">Tuch ID:</label>
+                <input type="text" id="tuchIdIpad" name="tuchIdIpad" value="{{product.tuchIdIpad}}">
+
+                <label for="siriIpad">Siri:</label>
+                <input type="text" id="siriIpad" name="siriIpad" value="{{product.siriIpad}}">
+            </div>
+            {% elif product.producttype == 'applevisionpro' %}
+            <div id="appleVisionPro" class="hidden">
+                <h2>Características Apple Vision Pro</h2>
+
+                <label for="screenSizeVison">Pantalla:</label>
+                <input type="text" id="screenSizeVison" name="screenSizeVison" value="{{product.screenSizeVison}}">
+
+                <label for="batteryVisionPro">Duración de la batería:</label>
+                <input type="text" id="batteryVisionPro" name="batteryVisionPro" value="{{product.batteryVisionPro}}">
+
+                <label for="sensoresVisionPro">Sensores:</label>
+                <input type="text" id="sensoresVisionPro" name="sensoresVisionPro" value="{{product.sensoresVisionPro}}">
+
+                <label for="dimensiones">Dimensiones:</label>
+                <input type="text" id="dimensiones" name="dimensiones" value="{{product.dimensiones}}">
+
+                <label for="modosVisionPro">Modos:</label>
+                <input type="text" id="modosVisionPro" name="modosVisionPro" value="{{product.modosVisionPro}}">
+
+                <label for="juegos">Cantidad de Juegos:</label>
+                <input type="number" id="juegos" name="juegos" value="{{product.juegos}}">
+            </div>            
+            {% endif %}
+
+            <button type="submit">Actualizar</button>
+        </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-O4XmD90ZRGF9/tp6Hq9z6w4Kyl4YXvqjaElCh1F/5S0cC2XsCtwZ0p5DgI9orO/m" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93K/oYVQdiQjauT61/8CKWeLdr6+wUczI2t7XYo0+zWjgmEildkKzwErnoEdyc" crossorigin="anonymous">
+        </script>
+
+
+    <script src="../static/js/script.js"></script>
+    <script src="../static/js/prueba.js"></script>
+
+
+</body>
+
+</html>

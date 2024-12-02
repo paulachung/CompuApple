@@ -1,2 +1,0 @@
-
-    cursorclass=MySQLdb.cursors.DictCursor

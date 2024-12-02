@@ -22,7 +22,8 @@
     background-color: #000;
 }
 
-.carousel-control-prev-icon, .carousel-control-next-icon {
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 25%;
 }
@@ -47,7 +48,8 @@
     width: 500px;
 }
 
-.carousel-caption h5, .carousel-caption p {
+.carousel-caption h5,
+.carousel-caption p {
     margin: 0;
 }
 
@@ -100,118 +102,83 @@
 }
 
 
-
 /* ------------- Productos Destacados ------------- */
-.TituloProductosDestacados {
+/* Configura el contenedor para que sea un grid de máximo 6 elementos */
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-rows: auto auto;
+    gap: 15px;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Estiliza las tarjetas individuales */
+.product-destacado {
+    background-color: #ffffff;
+    /* Color de fondo fijo para modo claro */
+    color: #020202;
+    /* Color de texto fijo */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    max-width: 180px;
     text-align: center;
-    margin: 0;
-    padding: 0;
-    font-size: 30px;
-}
-
-.scroll-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-}
-
-.wrapper {
-    display: inline-flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px;
-}
-
-.single-card {
-    width: 200px;
-    height: 300px;
-    margin: 10px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    background: #ffffff;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: space-between;
-}
-
-.single-card:hover {
-    transform: translateY(-10px);
-}
-
-.single-card .img-area {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    overflow: hidden; 
-}
-
-.single-card .img-area img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.img-area img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.img-area:hover img {
-    transform: scale(1.1);
-}
-
-.info {
+    box-sizing: border-box;
     padding: 10px;
-    text-align: center;
-    color: #000000;
+    position: relative;
 }
 
-.info h3 {
-    margin: 10px 0 5px;
-    font-size: 14px;
+/* Efecto hover para las tarjetas */
+.product-destacado:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estiliza el área de imagen */
+.product-destacado .img-area img {
+    width: 100%;
+    max-height: 120px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estiliza la información */
+.product-destacado .info {
+    padding: 8px;
+}
+
+.product-destacado .info h3 {
+    font-size: 1.25rem;
+    color: #020202;
+    /* Color fijo para el texto */
     font-weight: bold;
-    text-transform: uppercase;
-    white-space: normal;
-    overflow-wrap: break-word;
+    margin-bottom: 1rem;
 }
 
-.buttons {
-    margin-top: 10px;
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    #productos-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .product-destacado {
+        width: 100%;
+    }
 }
 
-.buy-now, .add-to-cart {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 8px 10px;
-    border-radius: 4px;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border: none;
+@media (max-width: 480px) {
+    #productos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .product-destacado {
+        width: 100%;
+    }
 }
-
-.buy-now:hover, .add-to-cart:hover {
-    background-color: #638ea8;
-    color: rgb(245, 245, 247);
-    border: none;
-}
-
-
 
 
 /* ------------- Categorías ------------- */
@@ -299,4 +266,12 @@
 .categoria-card h3 span {
     display: block;
     text-align: center;
+}
+
+/*mensaje cuando no hay productos por el que se quiere filtrar*/
+.no-products-message {
+    font-size: 1.5em;
+    color: #888;
+    text-align: center;
+    margin: 20px;
 }

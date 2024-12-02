@@ -1,0 +1,16 @@
+{% for product in products %}
+<div class="card" data-categoria="product" data-subcategoria="{{ product.productName }}">
+    <a href="/info/{{product.id}}/{{product.productType}}">
+        <img src="{{product.img}}" alt="{{ product.productName }}" class="card-img-top">
+    </a>
+    <div class="card-body">
+        <h3 class="card-title">{{ product.productName }}</h3> 
+        <p class="price">{{ product.price }}</p> 
+        <p class="card-text">{{ product.color }}, {{ product.dimensiones }}</p> 
+        <div class="buttons">
+            <button class="buy-now">Comprar Ahora</button>
+            <button class="add-to-cart" data-product-id="{{ product.id }}" data-product-name="{{ product.productName }}" data-product-price="{{ product.price }}">Añadir al Carrito</button>
+        </div>
+    </div>
+</div>
+{% endfor %}

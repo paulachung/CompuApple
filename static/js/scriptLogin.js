@@ -57,7 +57,7 @@ function hideValidationMessages() {
 }
 
 // Validación del campo de nombre
-document.getElementById("register-name").addEventListener("blur", function() {
+document.getElementById("register-name").addEventListener("blur", function () {
     const name = this.value.trim();
     const nameError = document.getElementById("name-error");
 
@@ -75,25 +75,25 @@ document.getElementById("register-name").addEventListener("blur", function() {
 });
 
 // Validación del campo de correo electrónico
-document.getElementById("register-email").addEventListener("blur", function() {
+document.getElementById("register-email").addEventListener("blur", function () {
     const emailInput = this.value.trim();
     const emailError = document.getElementById("email-error");
 
-    const emailPattern = /^[a-zA-Z0-9_]+@(gmail|hotmail)\.com$/;
+    const emailPattern = /^[a-zA-Z0-9_.]+@(gmail|hotmail)\.com$/;
 
     if (emailPattern.test(emailInput)) {
         emailError.textContent = "";
         emailError.style.display = "none";
         this.classList.remove("input-error");
     } else {
-        emailError.textContent = "Ingrese un correo válido (@hotmail.com o @gmail.com)";
+        emailError.textContent = "Ingrese un correo válido (sólo letras, números, _ y @hotmail.com o @gmail.com)";
         emailError.style.display = "block";
         this.classList.add("input-error");
     }
 });
 
 // Validación del campo de dirección
-document.getElementById("register-direccion").addEventListener("blur", function() {
+document.getElementById("register-direccion").addEventListener("blur", function () {
     const direccionInput = this.value.trim();
     const direccionError = document.getElementById("direccion-error");
 
@@ -111,7 +111,7 @@ document.getElementById("register-direccion").addEventListener("blur", function(
 });
 
 // Validación del campo de número de teléfono
-document.getElementById("register-telefono").addEventListener("blur", function() {
+document.getElementById("register-telefono").addEventListener("blur", function () {
     const telefonoInput = this.value.trim();
     const telefonoError = document.getElementById("telefono-error");
 
@@ -129,7 +129,7 @@ document.getElementById("register-telefono").addEventListener("blur", function()
 });
 
 // Validación del campo de contraseña
-document.getElementById("register-password").addEventListener("blur", function() {
+document.getElementById("register-password").addEventListener("blur", function () {
     const passwordInput = this.value.trim();
     const passwordError = document.getElementById("password-error");
 

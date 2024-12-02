@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const iphoneFields = document.getElementById("iphoneFields");
     const ipadFields = document.getElementById("ipadFields");
     const airpodsFields = document.getElementById("airpodsFields");
-    const appleVisionProFields = document.getElementById("appleVisionPro");
+    const applevisionproFields = document.getElementById("applevisionpro");
     const watchFields = document.getElementById("watchFields");
     const accesoriosFields = document.getElementById("accesorios");
     const productModal = document.getElementById('productModal');
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         iphoneFields.classList.add('hidden');
         ipadFields.classList.add('hidden');
         airpodsFields.classList.add('hidden');
-        appleVisionProFields.classList.add('hidden');
+        applevisionproFields.classList.add('hidden');
         watchFields.classList.add('hidden');
         // Muestra los campos generales
         generalFields.classList.remove('hidden');
@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
             case 'airpods':
                 airpodsFields.classList.remove('hidden');
                 break;
-            case 'appleVisionPro':
-                appleVisionProFields.classList.remove('hidden');
+            case 'applevisionpro':
+                applevisionproFields.classList.remove('hidden');
                 break;
             case 'watch':
                 watchFields.classList.remove('hidden');
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             saveProduct(name, description, price, imageUrl); // Manejar caso de no imagen
         }
-        
+
         let productDetails = {
             id: editProductId ? editProductId : Date.now(), // Usa el ID si está editando, o genera uno nuevo
             name: productName,
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 productDetails.sensoresAirpods = document.getElementById('sensoresAirpods').value;
                 break;
 
-            case 'appleVisionPro':
+            case 'applevisionpro':
                 productDetails.screenSiseVision = document.getElementById('screenSiseVision').checked;
                 productDetails.batteryVisionPro = document.getElementById('batteryVisionPro').checked;
                 productDetails.sensoresVisionPro = document.getElementById('sensoresVisionPro').checked;
@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById('sensoresAirpods').value = productToEdit.sensoresAirpods;
                     break;
 
-                case 'appleVisionPro':
+                case 'applevisionpro':
                     document.getElementById('screenSiseVision').checked = productToEdit.screenSiseVision;
                     document.getElementById('batteryVisionPro').checked = productToEdit.batteryVisionPro;
                     document.getElementById('sensoresVisionPro').checked = productToEdit.sensoresVisionPro;

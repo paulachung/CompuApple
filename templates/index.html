@@ -10,6 +10,8 @@
     <!-- Estilos CSS -->
     <link rel="stylesheet" type="text/css" href="/static/css/header.css">
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/responsivo.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/mediaQueries.css">
     <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!--<header class="navbar navbar-expand-lg navbar-dark">
+    <header class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index">
                 <img src="/static/img/logonuevo.png" alt="CompuApple" class="logo">
@@ -36,11 +38,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/aboutUs">Sobre nosotros</a>
                     </li>
+                    <!-- Mostrar el nombre de usuario si está en sesión -->
+                    {% if session.get('user_id') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('admin') if session.get('is_admin') else '#' }}"><i class="fa-solid fa-user"></i> {{ session['nombre'] }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="/logout" method="POST" style="display:inline;">
+                                <button type="submit" class="nav-link btn btn-link">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Iniciar sesión</a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> <span id="cart-counter" class="cart-counter">0</span> 
+                        <a class="nav-link" href="javascript:void(0)" id="cartIcon">
+                            <i class="fa-solid fa-cart-shopping"></i> 
+                            <span id="cart-counter" class="cart-counter">0</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -49,8 +65,8 @@
                 </ul>
             </div>
         </div>
-    </header>-->
-
+    </header>
+    
     <main>
         <!-- Carousel Bienvenida -->
         <section id="bienvenida">
@@ -103,128 +119,17 @@
         </section>
 
         <!-- Productos Destacados -->
-        <section id="productosDestacados" class="mt-5">
-            <div class="container">
-                <h2 class="TituloProductosDestacados">Productos destacados</h2>
-                
-                <!-- Contenedor Deslizable -->
-                <div class="scroll-container">
-                    <div class="wrapper">
-                        <div class="single-card">
-                            <div class="img-area">
-                                <img src="/static/img/product1.png" alt="Producto 1">
-                            </div>
-                            <div class="info">
-                                <h3>MacBook Air 15" M3 $3.000.000</h3>
-                                <div class="buttons">
-                                    <button class="buy-now">Comprar ahora</button>
-                                    <button class="add-to-cart">Añadir al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-card">
-                            <div class="img-area">
-                                <img src="/static/img/iphone15promax.jpg" alt="Producto 2">
-                            </div>
-                            <div class="info">
-                                <h3>iPhone 15 Pro Max $2.500.000</h3>
-                                <div class="buttons">
-                                    <button class="buy-now">Comprar ahora</button>
-                                    <button class="add-to-cart">Añadir al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-card small-image">
-                            <div class="img-area">
-                                <img src="/static/img/IPAD12.jpg" alt="Producto 3">
-                            </div>
-                            <div class="info">
-                                <h3>iPad Pro 12.9' $2.100.000</h3>
-                                <div class="buttons">
-                                    <button class="buy-now">Comprar ahora</button>
-                                    <button class="add-to-cart">Añadir al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-card">
-                            <div class="img-area">
-                                <img src="/static/img/watchdestacado.jpg" alt="Producto 4">
-                            </div>
-                            <div class="info">
-                                <h3>Apple Watch Series 9 $1.012.000</h3>
-                                <div class="buttons">
-                                    <button class="buy-now">Comprar ahora</button>
-                                    <button class="add-to-cart">Añadir al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Categorías -->
-        <section id="categorias" class="mt-5">
-            <div class="container">
-                <h2 class="TituloCategorias">Categorías</h2>
-
-                <!-- Contenedor Deslizable -->
-                <div class="scroll-container-categorias">
-                    <div class="categorias-wrapper">
-                        <!-- Tarjeta de categoría -->
-                        <a href="/products" class="categoria-card">
-                            <div class="img-container">
-                                <img src="/static/img/mac.jpeg" alt="Mac">
-                            </div>
-                            <h3>Mac</h3>
-                        </a>
-
-                        <a href="/products" class="categoria-card">
-                            <div class="img-container">
-                                <img src="/static/img/iPhone.jpeg" alt="iPhone">
-                            </div>
-                            <h3>iPhone</h3>
-                        </a>
-
-                        <a href="/products" class="categoria-card">
-                            <div class="img-container">
-                                <img src="/static/img/iPad.jpeg" alt="iPad">
-                            </div>
-                            <h3>iPad</h3>
-                        </a>
-
-                        <a href="/products" class="categoria-card">
-                            <div class="img-container">
-                                <img src="/static/img/watch.jpeg" alt="Watch">
-                            </div>
-                            <h3>Watch</h3>
-                        </a>
-
-                        <a href="/products" class="categoria-card">
-                            <div class="img-container">
-                                <img src="/static/img/AppleVisionPro.jpg" alt="Apple vision pro">
-                            </div>
-                            <h3>Apple vision pro</h3>
-                        </a>
-
-                        <a href="/products" class="categoria-card">
-                            <div class="img-container">
-                                <img src="/static/img/airPods.jpeg" alt="Accesorios">
-                            </div>
-                            <h3>Accesorios</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
+       <section id="productosDestacados" class="mt-5">
+               <div class="container">
+                  <h2 class="TituloProductosDestacados">Productos destacados</h2>
         
-    
+                  <!-- Contenedor donde se insertarán los productos dinámicamente -->
+                 <div id="productos-container" class="scroll-container">
+                     <!-- El contenido se cargará aquí mediante JavaScript -->
+                 </div>
+             </div>
+        </section>
+        
     </main>
     
     <footer>
@@ -237,7 +142,7 @@
 
 <!-- JavaScript  -->
     <script>
-       
+        
     // boton volver arriba
     var btnSubir = document.getElementById("btn-subir-arriba");
     btnSubir.onclick = function() {
@@ -253,7 +158,31 @@
             btnSubir.style.display = "none";
         }
     };
-    </script>
+
+    // Llamada a la API de productos destacados
+    fetch('/getFeaturedProducts')
+    .then(response => response.json())
+    .then(productos => {
+        const container = document.getElementById('productos-container');
+        productos.forEach(producto => {
+            const productCard = `
+                <div class="single-card product-destacado" onclick="window.location.href='/products'" style="cursor: pointer;">
+                    <div class="img-area">
+                        <img src="${producto.img}" alt="${producto.productName}">
+                    </div>
+                    <div class="info">
+                        <h3>${producto.productName} $${producto.price}</h3>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += productCard;
+        });
+    })
+    .catch(error => console.error('Error al cargar los productos:', error));
+
+
+</script>
+    
 
     <script src="/static/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

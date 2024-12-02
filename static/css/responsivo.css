@@ -1,90 +1,101 @@
-/*  dispositivos móviles */
+/* ----------- Dispositivos móviles ----------- */
 @media (max-width: 600px) {
     .contenedor {
-        flex-direction: column; 
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
     }
 
     .menu-lateral {
-        width: 100%; 
-        margin-bottom: 1rem; 
+        width: 100%;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
     }
 
     .productos {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: 1fr; /* Una sola columna para mejor visualización en móvil */
+        gap: 1rem;
     }
 
     .card {
-        padding: 0rem; 
+        padding: 1rem;
     }
 
     .buscador {
-        flex-direction: row; 
-        justify-content: center; 
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 1rem;
+        align-items: stretch;
     }
 
-    .buscador input {
-        width: auto; 
-        flex-grow: 1; 
-        margin-right: 0.5rem; 
-    }
-
+    .buscador input,
     .buscador button {
-        width: auto; 
-        margin-top: 0; 
+        width: 100%;
     }
 
     #btn-subir-arriba {
-        bottom: 20px; 
+        bottom: 20px;
     }
 }
 
-/*  tabletas */
+/* ----------- Tabletas ----------- */
 @media (min-width: 601px) and (max-width: 1024px) {
     .contenedor {
-        flex-direction: row; 
+        flex-direction: row;
+        padding: 1rem;
+        gap: 1.5rem;
     }
 
     .menu-lateral {
-        width: 200px; 
+        width: 220px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .productos {
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas para mejorar la distribución en tabletas */
+        gap: 1.5rem;
     }
 
     .buscador {
-        justify-content: space-between; 
+        flex-direction: row;
+        gap: 0.5rem;
+        padding: 0 1rem;
+        align-items: center;
     }
 
     .buscador input {
-        width: 70%; 
+        width: 65%;
     }
 
     .buscador button {
-        width: 25%; 
+        width: 30%;
     }
 
     #btn-subir-arriba {
-        bottom: 50px; 
+        bottom: 50px;
     }
 }
 
-/*  computadoras  */
+/* ----------- Computadoras ----------- */
 @media (min-width: 1025px) {
     .contenedor {
-        flex-direction: row; 
+        flex-direction: row;
     }
 
     .menu-lateral {
-        width: 250px; 
+        width: 250px;
     }
 
     .productos {
-        grid-template-columns: repeat(4, 1fr); 
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
     }
 
     .buscador {
-        justify-content: center; 
+        justify-content: center;
     }
 
     .buscador input {
@@ -92,6 +103,7 @@
     }
 
     .buscador button {
-        width: auto; 
+        width: auto;
     }
 }
+

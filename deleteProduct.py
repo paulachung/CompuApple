@@ -4,20 +4,19 @@ import pymysql
 
 # Configuración de la conexión a la base de datos
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '',
-    'database': 'tecnologia_v3',
-    'port': 3307
+    'host': '193.203.175.121',
+    'user': 'u314848509_compuapple',
+    'password': 'p,^.PKG2Jd!p6-F',
+    'database': 'u314848509_compuapple'
 }
 def connection():
   # Configuración de la conexión a la base de datos
   conn = pymysql.connect(
-    host= 'localhost',
-    user= 'root',  
-    password= '',
-    port= 3307,
-    database= "tecnologia_v3"
+    host= '193.203.175.121',
+    user= 'u314848509_compuapple',  
+    password= 'p,^.PKG2Jd!p6-F',
+    # port= 3307,
+    database= "u314848509_compuapple",
   )
   return conn
 # Conectar a la base de datos
@@ -48,7 +47,7 @@ def delete(product_id, producttype):
               cursor.execute("DELETE FROM airpods WHERE id = %s", (product_id,))
               conn.commit()
               
-          elif producttype == 'appleVisionPro':
+          elif producttype == 'applevisionpro':
               cursor.execute("DELETE FROM applevisionpro WHERE id = %s", (product_id,))
               conn.commit()
               

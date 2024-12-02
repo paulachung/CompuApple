@@ -1,0 +1,97 @@
+/* Estilo General */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezados */
+h3, h4 {
+    color: #333;
+    font-family: 'Nunito Sans', sans-serif;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+/* Estilo para Labels y Campos de Entrada */
+.form-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #638ea8;
+    box-shadow: 0 0 5px rgba(99, 142, 168, 0.3);
+}
+
+/* Sección de Características Específicas */
+#iphoneFields, #macFields, #airpodsFields, #wachFields, #ipadFields {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#iphoneFields h4,
+#macFields h4,
+#airpodsFields h4,
+#wachFields h4,
+#ipadFields h4 {
+    color: #333;
+    margin-top: 0;
+}
+
+/* Botón actualizar*/
+button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: #638ea8;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+}
